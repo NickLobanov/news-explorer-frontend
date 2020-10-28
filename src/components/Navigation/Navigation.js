@@ -5,7 +5,7 @@ function Navigation () {
     return (
         <ul className="nav">
             <li className="nav__item">Главная</li>
-            <li className="nav__item"><button className="nav__button">Авторизироваться</button></li>
+            <li className="nav__item-button"><button className="nav__button">Авторизироваться</button></li>
         </ul>
     )
 }
