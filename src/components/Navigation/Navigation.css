@@ -1,0 +1,24 @@
+.nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav__item {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.nav__button {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: transparent;
+    padding: 12px 12px 15px;
+    border: 1px solid #FFFFFF;
+    border-radius: 100px;
+}
