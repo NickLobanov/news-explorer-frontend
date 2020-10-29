@@ -3,9 +3,11 @@ import './NewsCardList.css';
 
 function NewsCardList() {
     return (
-        <div className="card-list">
-            <h2 className="card-list__title">Результаты поиска</h2>
-        </div>
+        <section className="card-list">
+            <div className="card-list__wrap">
+                <h2 className="card-list__title">Результаты поиска</h2>
+            </div>
+        </section>
     )
 }
 
