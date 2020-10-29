@@ -26,8 +26,13 @@
     font-weight: 500;
     color: #ffffff;
     background-color: transparent;
-    padding: 12px 12px 15px;
+    padding: 12px;
     border: 1px solid #FFFFFF;
     border-radius: 100px;
     margin-left: 44px;
+}
+
+.nav__save-article {
+    color: #B6BCBF;
+    margin-left: 34px;
 }
