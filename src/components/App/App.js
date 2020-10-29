@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer';
 
 function App() {
 
-  const [isLogged, setLogged] = React.useState(true)
+  const [isLogged, setLogged] = React.useState(true);
 
   return (
     <div className="page">

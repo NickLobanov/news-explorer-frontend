@@ -1,0 +1,11 @@
+.card-list {
+    width: 1232px;
+    margin: 0 auto;
+}
+
+.card-list__title {
+    font-size: 40px;
+    line-height: 46px;
+    font-weight: 400;
+    margin-bottom: 64px;
+}
