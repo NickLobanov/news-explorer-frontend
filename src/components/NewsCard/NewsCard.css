@@ -43,6 +43,10 @@
     font-weight: 400;
     color: #1A1B22;
     margin-bottom: 18px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
 .news-card__source {
@@ -51,5 +55,5 @@
     line-height: 20px;
     font-weight: 700;
     color:#B6BCBF;
-    margin-bottom: 24px;
+    padding-bottom: 24px;
 }
