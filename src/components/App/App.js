@@ -16,11 +16,10 @@ function App() {
         <Route exact path="/">
           <Main isLogged={isLogged}/>
         </Route>
-        <Route path="saved-news">
-          <SavedNews />
+        <Route path="/saved-news">
+          <SavedNews isLogged={isLogged}/>
         </Route>
       </Switch>
-      
       <Footer />
     </div>
   );

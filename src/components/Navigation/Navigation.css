@@ -36,3 +36,12 @@
     color: #B6BCBF;
     margin-left: 34px;
 }
+
+.nav__item_dark {
+    color: #1A1B22
+}
+
+.nav__button_dark {
+    border: 1px solid #1A1B22;
+    color: #1A1B22
+}

@@ -2,9 +2,9 @@ import React from 'react';
 import './SavedNews.css';
 import Header from '../Header/Header';
 
-function SavedNews() {
+function SavedNews({isLogged}) {
     return (
-        <Header />
+        <Header isLogged={isLogged}/>
     )
 }
 
