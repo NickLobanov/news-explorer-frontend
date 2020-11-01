@@ -1,0 +1,35 @@
+.news-info {
+    padding-top: 40px;
+}
+
+.news-info__wrap {
+    margin-left: 104px;
+}
+
+.news-info__title {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: rgba(26, 27, 34, 0.5);
+    margin-bottom: 28px;
+}
+
+.news-info__amout {
+    font-size: 40px;
+    line-height: 46px;
+    font-weight: 400;
+    color: #1A1B22;
+    margin-bottom: 30px;
+}
+
+.news-info__keywords {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #1A1B22;
+    margin-bottom: 56px;
+}
+
+.news-info__keyword {
+    font-weight: 700;
+}
