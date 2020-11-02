@@ -3,6 +3,7 @@
     max-height: 576px;
     border-radius: 10px;
     background-color: #ffffff;
+    margin-bottom: 16px;
 }
 
 .news-card__image {

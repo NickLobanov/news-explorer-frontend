@@ -10,6 +10,7 @@ function NewsCardList() {
                 <NewsCard />
                 <NewsCard />
                 <NewsCard />
+                <NewsCard />
             </div>
             <button type="button" className="card-list__button">Показать еще</button>
         </section>
