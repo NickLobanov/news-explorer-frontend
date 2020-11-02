@@ -4,6 +4,7 @@ import './App.css';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import SavedNews from '../SavedNews/SavedNews';
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         </Route>
       </Switch>
       <Footer />
+      <PopupWithForm />
     </div>
   );
 }
