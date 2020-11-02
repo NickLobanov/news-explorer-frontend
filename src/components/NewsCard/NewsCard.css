@@ -87,7 +87,7 @@
     padding: 12px 12px;
     background-color: #ffffff;
     border-radius: 10px;
-    margin-left: 66px;
+    margin-left: auto;
     margin-right: 5px;
 }
 
@@ -96,6 +96,7 @@
     height: 40px;
     background-color: #ffffff;
     border-radius: 8px;
+    margin-right: 24px;
 }
 
 .news-card__button_add {
@@ -108,4 +109,5 @@
     background-image: url(../../images/busket.svg);
     background-position: center;
     background-repeat: no-repeat;
+
 }

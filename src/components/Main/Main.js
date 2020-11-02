@@ -18,7 +18,7 @@ function Main({ isLogged }) {
                     </div>
                 </form>
             </div>
-            <NewsCardList />
+            <NewsCardList typeButton="add" hintText="Войдите, чтобы сохранять статьи"/>
             <About />
         </>
     )
