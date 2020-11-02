@@ -17,7 +17,7 @@ function NewsCard() {
             <div className="news-card__container">
                 <span className="news-card__keyword">Природа</span>
                 <span className="news-card__hint">Убрать из сохранённых</span>
-                <div className="news-card__button"></div>
+                <div className="news-card__button news-card__button_add "></div>
             </div>
         </div>
     )
