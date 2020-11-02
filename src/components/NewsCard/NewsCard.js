@@ -14,6 +14,11 @@ function NewsCard() {
                     где и сегодня каждый может приобщиться к природе.</p>
                 <p className="news-card__source">Лента.ру</p>
             </div>
+            <div className="news-card__container">
+                <span className="news-card__keyword">Природа</span>
+                <span className="news-card__hint">Убрать из сохранённых</span>
+                <div className="news-card__button"></div>
+            </div>
         </div>
     )
 }
