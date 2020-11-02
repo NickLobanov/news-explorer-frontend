@@ -1,0 +1,32 @@
+.nav__item_footer {
+    color: #1A1B22;
+    margin-left: 30px;
+}
+
+.nav__wrap {
+    width: 68px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 42px;
+}
+
+.nav__link {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.nav__link_github {
+    background-image: url(../../images/github.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.nav__link_fb {
+    background-image: url(../../images/fb.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
