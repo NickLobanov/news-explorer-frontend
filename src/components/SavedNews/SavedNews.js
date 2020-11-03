@@ -7,7 +7,7 @@ import NewsCardList from '../NewsCardList/NewsCardList';
 function SavedNews({isLogged}) {
     return (
         <>
-            <Header isLogged={isLogged}/>
+            <Header isLogged={isLogged} darkType="dark"/>
             <SavedNewsHeader />
             <NewsCardList typeButton="delete" hintText="Убрать из сохранённых"/>
         </>
