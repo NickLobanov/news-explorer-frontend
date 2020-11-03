@@ -9,7 +9,7 @@ function SavedNews({isLogged}) {
         <>
             <Header isLogged={isLogged} darkType="dark"/>
             <SavedNewsHeader />
-            <NewsCardList typeButton="delete" hintText="Убрать из сохранённых"/>
+            <NewsCardList typeButton="delete" hintText="Убрать из сохранённых" showTitle={false} showButton={false}/>
         </>
     )
 }
