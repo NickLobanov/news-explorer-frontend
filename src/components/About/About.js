@@ -4,7 +4,7 @@ import avatar from '../../images/avatar.jpg';
 
 function About() {
     return (
-        <div className="avatar">
+        <section className="avatar">
             <div className="avatar__container">
                 <img src={avatar} alt="Аватар" className="avatar__image"/>
                 <div className="avatar__wrap">
@@ -15,7 +15,7 @@ function About() {
                         и чем можете помочь потенциальным заказчикам.</p>
                 </div>
             </div> 
-        </div>
+        </section>
     )
 }
 

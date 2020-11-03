@@ -3,10 +3,10 @@
 }
 
 .avatar__container {
+    box-sizing: border-box;
     display: flex;
     width: 1440px;
     padding-left: 104px;
-    box-sizing: border-box;
 }
 
 .avatar__image {
