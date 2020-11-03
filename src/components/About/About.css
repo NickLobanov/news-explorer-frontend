@@ -1,13 +1,12 @@
 .avatar {
-    width: 1120px;
-    margin-left: 104px;
     padding-top: 80px;
 }
 
 .avatar__container {
+    display: flex;
     width: 1440px;
-    margin: 0 auto;
-    display: flex; 
+    padding-left: 104px;
+    box-sizing: border-box;
 }
 
 .avatar__image {

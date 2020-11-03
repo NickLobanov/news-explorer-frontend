@@ -1,6 +1,7 @@
-.footer {
+.footer__container {
     display: flex;
     justify-content: space-between;
+    width: 1440px;
 }
 
 .footer__copyright {

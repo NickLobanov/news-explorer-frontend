@@ -5,8 +5,10 @@ import NavigationFooter from '../NavigationFooter/NavigationFooter';
 function Footer() {
     return (
         <footer className="footer">
-            <p className="footer__copyright">&#169; 2020 Supersite, Powered by News API</p>
-            <NavigationFooter />
+            <div className="footer__container">
+                <p className="footer__copyright">&#169; 2020 Supersite, Powered by News API</p>
+                <NavigationFooter />
+            </div> 
         </footer>
     )
 }
