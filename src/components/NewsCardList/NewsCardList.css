@@ -3,6 +3,11 @@
     padding-bottom: 80px;
 }
 
+.card-list__container {
+    width: 1440px;
+    margin: 0 auto;
+}
+
 .card-list__wrap {
     width: 1232px;
     margin: 0 auto;
