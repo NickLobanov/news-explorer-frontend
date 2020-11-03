@@ -1,11 +1,12 @@
 import React from 'react';
 import './Header.css'
 import Navigation from '../Navigation/Navigation';
+import { Link } from 'react-router-dom';
 
 function Header({ isLogged, darkType }) {
     return (
         <header className="header">
-            <h2 className={`header__title header__title_${darkType}`}>NewsExplorer</h2>
+            <Link to="/" className={`header__logo header__logo_${darkType}`}>NewsExplorer</Link>
             <Navigation isLogged={isLogged} darkType={darkType}/>
         </header>
     )

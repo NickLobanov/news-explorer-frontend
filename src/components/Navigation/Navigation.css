@@ -11,13 +11,26 @@
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
+    
+}
+
+.nav__ref {
     color: #ffffff;
     padding-top: 30px;
-    padding-bottom: 26px;
+    padding-bottom: 28px;
+    text-decoration: none;
+}
+
+.nav__ref_active_main {
+    border-bottom: 1px solid #ffffff;
+}
+
+.nav__ref_active_save {
+    border-bottom: 1px solid #1A1B22;
 }
 
 .nav__item-button {
-    padding-top: 19px;
+    padding-top: 16px;
     padding-bottom: 12px;
 }
 
@@ -38,7 +51,7 @@
     margin-left: 34px;
 }
 
-.nav__item_dark {
+.nav__ref_dark {
     color: #1A1B22
 }
 
