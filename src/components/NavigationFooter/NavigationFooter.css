@@ -11,6 +11,11 @@
     margin-left: 42px;
 }
 
+.nav__item-link {
+    text-decoration: none;
+    color: #1A1B22;
+}
+
 .nav__link {
     display: block;
     width: 20px;
