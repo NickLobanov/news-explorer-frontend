@@ -26,6 +26,7 @@
     font-size: 40px;
     line-height: 46px;
     font-weight: 400;
+    font-family: 'Roboto Slab', Arial, sans-serif;
     color: #1A1B22;
     margin-bottom: 24px;
 }
@@ -34,6 +35,7 @@
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
+    font-family: 'Roboto', Arial, sans-serif;
     color: #1A1B22;
     margin-bottom: 24px;
 }

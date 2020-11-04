@@ -11,7 +11,7 @@
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
-    
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 .nav__ref {
@@ -38,6 +38,7 @@
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
+    font-family: 'Roboto', Arial, sans-serif;
     color: #ffffff;
     background-color: transparent;
     padding: 12px;
