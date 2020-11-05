@@ -117,3 +117,23 @@
     background-repeat: no-repeat;
 
 }
+
+/* Адаптив */
+
+@media screen and (max-width: 1280px) {
+    .news-card {
+        width: 320px;
+    }
+
+    .news-card__image {
+        width: 100%;
+    }
+
+    .news-card__wrap {
+        width: 88%;
+    }
+
+    .news-card__keyword {
+        display: none;
+    }
+}

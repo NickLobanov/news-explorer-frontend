@@ -39,3 +39,11 @@
     color: #1A1B22;
     margin-bottom: 24px;
 }
+
+/* Адаптив */ 
+
+@media screen and (max-width: 1280px) {
+    .avatar__container {
+        max-width: 1047px;
+    }
+}

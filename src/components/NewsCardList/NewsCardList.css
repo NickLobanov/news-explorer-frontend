@@ -40,3 +40,15 @@
     margin: 0 auto;
     margin-top: 64px;
 }
+
+/* Адаптив */ 
+
+@media screen and (max-width: 1280px) {
+    .card-list__container {
+        max-width: 1047px;
+    }
+
+    .card-list__wrap {
+        width: 100%;
+    }
+}
