@@ -3,7 +3,7 @@
 }
 
 .header__container {
-    max-width: 1440px;
+    max-width: 1232px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -12,14 +12,12 @@
 
 .header__logo {
     margin: 0;
-    font-family: 'Roboto Slab', Arial, sans-serif;
     font-size: 20px;
     line-height: 24px;
     font-weight: 700;
     color: #ffffff;
     padding-top: 30px;
     padding-bottom: 26px;
-    padding-left: 103px;
     text-decoration: none;
 }
 
