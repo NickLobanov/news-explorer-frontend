@@ -67,6 +67,24 @@
         background-size: cover;
     }
 
+    .header__burger-menu_active {
+        display: none;
+    }
+
+    .header__close-button {
+        display: none;
+    }
+
+    .header__close-button_active {
+        display: block;
+        width: 24px;
+        height: 24px;
+        background-image: url(../../images/close-btn.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
     .header_mobile {
         background: #1A1B22;
     }

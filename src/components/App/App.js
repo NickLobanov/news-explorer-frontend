@@ -19,6 +19,10 @@ function App() {
     setPopupWithFormClick(true)
   }
 
+  function handleMenuBtn() {
+    setPopupWithMenuClick(true)
+  }
+
   //Закрытие popup
   function closeAllPopup() {
     setPopupWithFormClick(false)
@@ -29,7 +33,7 @@ function App() {
     <div className="page">
       <Switch>
         <Route exact path="/">
-          <Main isLogged={isLogged} authBtnClick={handleAuthorizationBtn}/>
+          <Main isLogged={isLogged} authBtnClick={handleAuthorizationBtn} burgerMenuClick={handleMenuBtn} isMobileMenuActive={isPopupWithMenuOpen}/>
         </Route>
         <Route path="/saved-news">
           <SavedNews isLogged={isLogged}/>
@@ -37,7 +41,7 @@ function App() {
       </Switch>
       <Footer />
       <PopupWithForm isOpen={isPopupWithFormOpen} isClose={closeAllPopup}/>
-      <PopupWithMenu isLogged={isLogged} menuType={'mobile'}/>
+      <PopupWithMenu isLogged={isLogged} menuType={'mobile'} isOpen={isPopupWithMenuOpen} isClose={closeAllPopup}/>
     </div>
   );
 }
