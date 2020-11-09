@@ -45,3 +45,20 @@
         margin-left: 16px;
     }
 }
+
+@media screen and (max-width: 720px) {
+    .nav_footer {
+        flex-direction: column;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        max-height: 150px;
+    }
+    .nav__item_footer {
+        margin-left: 0;
+        margin-bottom: 38px;
+    }
+
+    .nav__item_footer:last-of-type {
+        margin-left: auto;
+    }
+}

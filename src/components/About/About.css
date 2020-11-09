@@ -86,3 +86,9 @@
     }
 }
 
+@media screen and (max-width: 720px) {
+    .avatar__container {
+        max-width: 90%;
+    }
+}
+

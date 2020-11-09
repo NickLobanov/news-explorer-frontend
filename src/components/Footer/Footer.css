@@ -35,3 +35,15 @@
         max-width: 688px;
     }
 }
+
+@media screen and (max-width: 720px) {
+    .footer__container {
+        max-width: 90%;
+        flex-direction: column;
+    }
+
+    .footer__copyright {
+        order: 3;
+        padding-top: 0;
+    }
+}

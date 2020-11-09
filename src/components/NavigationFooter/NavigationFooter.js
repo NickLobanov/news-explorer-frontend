@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function NavigationFooter() {
     return(
-        <ul className="nav">
+        <ul className="nav nav_footer">
             <li className="nav__item nav__item_footer"><Link to="/" className="nav__item-link">Главная</Link></li>
             <li className="nav__item nav__item_footer"><a href="https://praktikum.yandex.ru/" className="nav__item-link">Яндекс.Практикум</a></li>
             <li className="nav__item nav__item_footer">
