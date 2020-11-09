@@ -35,3 +35,13 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 920px) {
+    .nav__item_footer {
+        margin-left: 16px;
+    }
+
+    .nav__wrap {
+        margin-left: 16px;
+    }
+}

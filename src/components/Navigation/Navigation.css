@@ -59,3 +59,18 @@
     border: 1px solid #1A1B22;
     color: #1A1B22
 }
+
+@media screen and (max-width: 920px) {
+    .nav__item {
+        font-size: 16px;
+    }
+
+    .nav__save-article {
+        margin-left: 16px;
+    }
+
+    .nav__button {
+        font-size: 16px;
+        margin-left: 16px;
+    }
+}

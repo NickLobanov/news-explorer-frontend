@@ -29,3 +29,9 @@
         max-width: 890px;
     }
 }
+
+@media screen and (max-width: 920px) {
+    .footer__container {
+        max-width: 688px;
+    }
+}
