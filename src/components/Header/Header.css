@@ -66,4 +66,8 @@
         background-position: center;
         background-size: cover;
     }
+
+    .header_mobile {
+        background: #1A1B22;
+    }
 }

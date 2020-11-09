@@ -5,6 +5,7 @@ import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import SavedNews from '../SavedNews/SavedNews';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import PopupWithMenu from '../PopupWithMenu/PopupWithMenu';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       </Switch>
       <Footer />
       <PopupWithForm />
+      <PopupWithMenu isLogged={isLogged} menuType={'mobile'}/>
     </div>
   );
 }

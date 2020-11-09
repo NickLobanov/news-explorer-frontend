@@ -3,10 +3,10 @@ import './Header.css'
 import Navigation from '../Navigation/Navigation';
 import { Link } from 'react-router-dom';
 
-function Header({ isLogged, darkType }) {
+function Header({ isLogged, darkType, menuType }) {
 
     return (
-        <header className="header">
+        <header className={`header header_${menuType}`}>
             <div className="header__container">
                 <Link to="/" className={`header__logo header__logo_${darkType}`}>NewsExplorer</Link>
                 <Navigation isLogged={isLogged} darkType={darkType}/>

@@ -60,6 +60,8 @@
     color: #1A1B22
 }
 
+/* Адаптив */
+
 @media screen and (max-width: 920px) {
     .nav__item {
         font-size: 16px;
@@ -78,5 +80,38 @@
 @media screen and (max-width: 660px) {
     .nav {
         display: none;
+    }
+
+    /*Стили для мобильного меню*/
+    .nav_mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 45px;
+    }
+
+    .nav__item_mobile {
+        margin-bottom: 20px;
+    }
+
+    .nav__ref_mobile {
+        border: none;
+        margin: 0;
+        padding: 0;
+        color: #ffffff;
+        font-size: 18px;
+    }
+
+    .nav__button_mobile {
+        margin: 0;
+        font-size: 18px;
+        line-height: 24px;
+        padding: 15px 63px 17px;
+    }
+
+    .nav__item-button_mobile {
+        padding: 0;
     }
 }
