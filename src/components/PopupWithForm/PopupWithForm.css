@@ -6,7 +6,7 @@
     left: 0;
     z-index: 5;
     background: rgba(00, 00, 00, 0.5);
-    visibility: hidden;
+    visibility: visible;
 }
 
 .popup__form {
@@ -93,4 +93,29 @@
     background-image: url(../../images/close-btn.svg);
     background-position: center;
     background-repeat: no-repeat;
+}
+
+/* Адаптив */
+
+@media screen and (max-width: 768px) {
+    .popup__form {
+        margin-top: 25%
+    }
+
+    .popup__close {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .popup {
+        background: transparent;
+    }
+
+    .popup__form {
+        margin-top: 81px;
+        height: calc(100vh - 81px);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 }
