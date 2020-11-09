@@ -3,6 +3,7 @@ import './Main.css'
 import Header from '../Header/Header';
 import About from '../About/About';
 import NewsCardList from '../NewsCardList/NewsCardList';
+import Preloader from '../Preloader/Preloader';
 
 function Main({ isLogged }) {
     return (
@@ -18,6 +19,7 @@ function Main({ isLogged }) {
                     </div>
                 </form>
             </div>
+            <Preloader />
             <NewsCardList typeButton="add" hintText="Войдите, чтобы сохранять статьи" showTitle={true} showButton={true}/>
             <About />
         </>
