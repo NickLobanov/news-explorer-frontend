@@ -5,11 +5,11 @@ import About from '../About/About';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import Preloader from '../Preloader/Preloader';
 
-function Main({ isLogged }) {
+function Main({ isLogged, authBtnClick }) {
     return (
         <>
             <div className="main">
-                <Header isLogged={isLogged}/>
+                <Header isLogged={isLogged} authBtnClick={authBtnClick}/>
                 <form className="main__form">
                     <h1 className="main__title">Что творится в мире?</h1>
                     <p className="main__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>

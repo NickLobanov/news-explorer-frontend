@@ -2,7 +2,9 @@ import React from 'react';
 import './Navigation.css';
 import { NavLink } from 'react-router-dom';
 
-function Navigation ({ isLogged, darkType, menuType }) {
+function Navigation ({ isLogged, darkType, menuType, authBtnClick }) {
+
+
     return (
         <ul className={`nav nav_${menuType}`}>
             <li className={`nav__item nav__item_${menuType}`}>
@@ -16,7 +18,9 @@ function Navigation ({ isLogged, darkType, menuType }) {
                     </NavLink>
                 </li>
             }
-            <li className={`nav__item-button nav__item-button_${menuType}`}><button className={`nav__button nav__button_${darkType} nav__button_${menuType}`}>Авторизироваться</button></li>
+            <li className={`nav__item-button nav__item-button_${menuType}`}>
+                <button className={`nav__button nav__button_${darkType} nav__button_${menuType}`} onClick={authBtnClick}>Авторизироваться</button>
+            </li>
         </ul>
     )
 }

@@ -11,19 +11,32 @@ import PopupWithMenu from '../PopupWithMenu/PopupWithMenu';
 function App() {
 
   const [isLogged, setLogged] = React.useState(true);
+  const [isPopupWithFormOpen, setPopupWithFormClick] = React.useState(false);
+  const [isPopupWithMenuOpen, setPopupWithMenuClick] = React.useState(false);
+
+  //Открытие popup авторизации
+  function handleAuthorizationBtn() {
+    setPopupWithFormClick(true)
+  }
+
+  //Закрытие popup
+  function closeAllPopup() {
+    setPopupWithFormClick(false)
+    setPopupWithMenuClick(false)
+  }
 
   return (
     <div className="page">
       <Switch>
         <Route exact path="/">
-          <Main isLogged={isLogged}/>
+          <Main isLogged={isLogged} authBtnClick={handleAuthorizationBtn}/>
         </Route>
         <Route path="/saved-news">
           <SavedNews isLogged={isLogged}/>
         </Route>
       </Switch>
       <Footer />
-      <PopupWithForm />
+      <PopupWithForm isOpen={isPopupWithFormOpen} isClose={closeAllPopup}/>
       <PopupWithMenu isLogged={isLogged} menuType={'mobile'}/>
     </div>
   );

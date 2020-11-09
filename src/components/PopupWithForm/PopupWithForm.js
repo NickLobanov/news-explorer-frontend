@@ -1,9 +1,14 @@
 import React from 'react';
 import './PopupWithForm.css';
 
-function PopupWithForm({isSignUp}) {
+function PopupWithForm({isSignUp, isOpen, isClose}) {
+
+    function handleClose() {
+        isClose()
+    }
+
     return(
-        <div className="popup">
+        <div className={`popup ${isOpen && `popup_active`}`}>
             <form className="popup__form">
                 <div className="popup__wrap">
                     <h3 className="popup__title">Вход</h3>
@@ -15,7 +20,7 @@ function PopupWithForm({isSignUp}) {
                     <button className="popup__button">Войти</button>
                     <p className="popup__text">или <span className="popup__link">Зарегистрироваться</span></p>
                 </div>
-                <button className="popup__close" type="button"></button>
+                <button className="popup__close" type="button" onClick={handleClose}></button>
             </form>
         </div>
     )

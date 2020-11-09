@@ -9,6 +9,10 @@
     visibility: hidden;
 }
 
+.popup_active {
+    visibility: visible;
+}
+
 .popup__form {
     position: relative;
     display: flex;
