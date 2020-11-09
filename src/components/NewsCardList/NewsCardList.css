@@ -52,3 +52,25 @@
         width: 100%;
     }
 }
+
+@media screen and (max-width: 1080px) {
+    .card-list {
+        padding-bottom: 40px;
+    }
+
+    .card-list__container {
+        max-width: 890px;
+    }
+
+    .card-list__title {
+        padding-top: 40px;
+    }
+
+    .card-list__wrap {
+        padding-top: 32px;
+    }
+
+    .card-list__button {
+        margin-top: 25px;
+    }
+}

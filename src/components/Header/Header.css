@@ -32,3 +32,9 @@
         max-width: 1047px;
     }
 }
+
+@media screen and (max-width: 1080px) {
+    .header__container {
+        max-width: 890px;
+    }
+}

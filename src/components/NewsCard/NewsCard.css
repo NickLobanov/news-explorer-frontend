@@ -137,3 +137,21 @@
         display: none;
     }
 }
+
+@media screen and (max-width: 1080px) {
+    .news-card {
+        width: 280px;
+        max-height: 490px;
+    }
+
+    .news-card__hint {
+        font-size: 10px;
+        line-height: 15px;
+    }
+
+    .news-card__title {
+        font-size: 22px;
+        line-height: 24px;
+    }
+
+}

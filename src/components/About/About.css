@@ -47,3 +47,20 @@
         max-width: 1047px;
     }
 }
+
+@media screen and (max-width: 1080px) {
+    .avatar {
+        padding-top: 40px;
+    }
+
+    .avatar__container {
+        max-width: 890px;
+    }
+
+    .avatar__image {
+        width: 364px;
+        height: 364px;
+        margin-bottom: 60px;
+    }
+}
+

@@ -60,3 +60,29 @@
     top: 0;
     right: 0;
 }
+
+/* Адаптив */
+
+@media screen and (max-width: 1080px) {
+    .main__title {
+        margin-top: 38px;
+        margin-bottom: 16px;
+        font-size: 36px;
+        line-height: 40px;
+        width: 400px;
+    }
+
+    .main__text {
+        margin-bottom: 48px;
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .main__input {
+        margin-bottom: 48px;
+    }
+
+    .main__form {
+        width: 448px;
+    }
+}
