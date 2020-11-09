@@ -61,6 +61,14 @@
     right: 0;
 }
 
+.main__button:hover {
+   background-color: #347EFF;
+}
+
+.main__button:active {
+    background-color: #2A65CC;
+}
+
 /* Адаптив */
 
 @media screen and (max-width: 1080px) {

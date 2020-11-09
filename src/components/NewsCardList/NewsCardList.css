@@ -41,6 +41,10 @@
     margin-top: 64px;
 }
 
+.card-list__button:hover {
+    background-color: rgba(255,255,255,0.7);
+}
+
 /* Адаптив */ 
 
 @media screen and (max-width: 1280px) {
