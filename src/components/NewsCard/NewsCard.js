@@ -2,7 +2,7 @@ import React from 'react';
 import './NewsCard.css';
 import cardImage from '../../images/card-image.png';
 
-function NewsCard({ typeButton, hintText }) {
+function NewsCard({ typeButton, hintText, showHint}) {
     return (
         <div className="news-card">
             <img src={cardImage} alt="Изображение статьи" className="news-card__image"/>
@@ -15,7 +15,7 @@ function NewsCard({ typeButton, hintText }) {
                 <p className="news-card__source">Лента.ру</p>
             </div>
             <div className="news-card__container">
-                <span className="news-card__keyword">Природа</span>
+                {showHint && <span className="news-card__keyword">Природа</span>}
                 <span className="news-card__hint">{hintText}</span>
                 <div className={`news-card__button news-card__button_${typeButton}`}></div>
             </div>

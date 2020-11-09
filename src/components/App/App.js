@@ -33,7 +33,10 @@ function App() {
     <div className="page">
       <Switch>
         <Route exact path="/">
-          <Main isLogged={isLogged} authBtnClick={handleAuthorizationBtn} burgerMenuClick={handleMenuBtn} isMobileMenuActive={isPopupWithMenuOpen}/>
+          <Main isLogged={isLogged}
+            authBtnClick={handleAuthorizationBtn}
+            burgerMenuClick={handleMenuBtn}
+            isMobileMenuActive={isPopupWithMenuOpen}/>
         </Route>
         <Route path="/saved-news">
           <SavedNews isLogged={isLogged}/>

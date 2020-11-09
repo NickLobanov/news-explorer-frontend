@@ -148,7 +148,11 @@
     }
 
     .news-card__keyword {
-        display: none;
+        margin-left: 8px;
+    }
+
+    .news-card__button {
+        margin-right: 8px;
     }
 }
 
