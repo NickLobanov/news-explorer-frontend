@@ -91,3 +91,9 @@
         max-width: 90%;
     }
 }
+
+@media screen and (max-width: 520px) {
+    .card-list__wrap {
+        justify-content: center;
+    }
+}

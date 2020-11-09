@@ -86,3 +86,31 @@
         width: 448px;
     }
 }
+
+@media screen and (max-width: 520px) {
+    .main__wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main__button {
+        position: relative;
+        margin-bottom: 32px;
+    }
+
+    .main__input {
+        margin-bottom: 16px;
+    }
+
+    .main__text {
+        margin-bottom: 122px;
+    }
+
+    .main__form {
+        width: 90%;
+    }
+
+    .main__title {
+        width: 100%;
+    }
+}

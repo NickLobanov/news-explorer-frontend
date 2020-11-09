@@ -188,3 +188,27 @@
         margin-top: 8px;
     }
  }
+
+ @media screen and (max-width: 520px) {
+    .news-card {
+        width: 288px;
+        max-height: 446px;
+    }
+
+    .news-card__image {
+        max-height: 196px;
+    }
+
+    .news-card__date {
+        padding-top: 9px;
+        margin-bottom: 10px;
+    }
+
+    .news-card__text {
+        margin-bottom: 8px;
+    }
+
+    .news-card__source {
+        padding-bottom: 16px;
+    }
+ }
