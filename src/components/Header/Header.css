@@ -51,3 +51,14 @@
         max-width: 90%;
     }
 }
+
+@media screen and (max-width: 660px) {
+    .header__burger-menu {
+        width: 24px;
+        height: 24px;
+        background-image: url(../../images/burger-menu.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
