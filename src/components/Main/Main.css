@@ -1,0 +1,124 @@
+.main {
+    background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main__form {
+    width: 608px;
+    margin: 0 auto;
+}
+
+.main__title {
+    margin: 0;
+    font-size: 60px;
+    line-height: 64px;
+    font-weight: 400;
+    font-family: 'Roboto Slab', Arial, sans-serif;
+    color: #ffffff;
+    margin-bottom: 32px;
+    margin-top: 80px;
+}
+
+.main__text {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #ffffff;
+    margin-bottom: 64px;
+}
+
+.main__wrap {
+    position: relative;
+}
+
+.main__input {
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    padding-left: 24px;
+    border-radius: 100px;
+    border: 1px solid #D1D2D6;
+    margin-bottom: 80px;
+}
+
+.main__button {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+    font-family: 'Roboto', Arial, sans-serif;
+    padding: 20px 53px 22px;
+    border-radius: 100px;
+    background-color: #2F71E5;
+    border: none;
+    box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.main__button:hover {
+   background-color: #347EFF;
+}
+
+.main__button:active {
+    background-color: #2A65CC;
+}
+
+/* Адаптив */
+
+@media screen and (max-width: 1080px) {
+    .main__title {
+        margin-top: 38px;
+        margin-bottom: 16px;
+        font-size: 36px;
+        line-height: 40px;
+        width: 400px;
+    }
+
+    .main__text {
+        margin-bottom: 48px;
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .main__input {
+        margin-bottom: 48px;
+    }
+
+    .main__form {
+        width: 448px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .main__wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main__button {
+        position: relative;
+        margin-bottom: 32px;
+    }
+
+    .main__input {
+        margin-bottom: 16px;
+    }
+
+    .main__text {
+        margin-bottom: 122px;
+    }
+
+    .main__form {
+        width: 90%;
+    }
+
+    .main__title {
+        width: 100%;
+    }
+}
