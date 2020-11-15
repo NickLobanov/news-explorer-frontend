@@ -16,6 +16,9 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive }) {
         setKeyword(evt.target.value)
     }
 
+    //Обработчик загрузки новых карточек
+    
+
     function handleSubmit(evt) {
         evt.preventDefault();
         newsApi.getNews(keyword)
@@ -45,7 +48,8 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive }) {
                 showButton={true}
                 cards={cards}
                 keywoed={keyword}
-                isVisible={cardListVisible}/>
+                isVisible={cardListVisible}
+                />
             <About />
         </>
     )
