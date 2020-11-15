@@ -10,6 +10,7 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive }) {
 
     const [keyword, setKeyword] = React.useState('');
     const [cards, setCards] = React.useState([]);
+    const [cardListVisible, setCardListVisible] = React.useState(false)
 
     function handleInput(evt) {
         setKeyword(evt.target.value)
@@ -20,6 +21,7 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive }) {
         newsApi.getNews(keyword)
             .then((data) => {
                 setCards(data.articles)
+                setCardListVisible(true);
             })
     }
 
@@ -42,7 +44,8 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive }) {
                 showTitle={true}
                 showButton={true}
                 cards={cards}
-                keywoed={keyword}/>
+                keywoed={keyword}
+                isVisible={cardListVisible}/>
             <About />
         </>
     )
