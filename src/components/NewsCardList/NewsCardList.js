@@ -4,10 +4,12 @@ import NewsCard from '../NewsCard/NewsCard';
 
 function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, cards, keyword, isVisible }) {
 
-    const [arrItem, setArrItem] = React.useState(3);
+    const [lastItem, setLastItem] = React.useState(3)
+
+    const cardsArr = cards.slice(0, lastItem);
 
     function increaseItem() {
-        setArrItem(arrItem + 3)
+        setLastItem(lastItem + 3)
     }
 
 
@@ -16,7 +18,7 @@ function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, c
             <div className="card-list__container">
                 {showTitle && <h2 className="card-list__title">Результаты поиска</h2>}
                 <div className="card-list__wrap">
-                    {cards.slice(0, arrItem).map((data, index) => (
+                    {cardsArr.map((data, index) => (
                         <NewsCard typeButton={typeButton}
                             id={index}
                             key={index}
@@ -30,7 +32,8 @@ function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, c
                         />
                     ))}
                 </div>
-                {showButton && <button type="button" className="card-list__button" onClick={increaseItem}>Показать еще</button>}
+                {showButton && <button type="button" className="card-list__button" onClick={increaseItem
+                }>Показать еще</button>}
             </div>
         </section>
     )

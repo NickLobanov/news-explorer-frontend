@@ -15,10 +15,7 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive }) {
     function handleInput(evt) {
         setKeyword(evt.target.value)
     }
-
-    //Обработчик загрузки новых карточек
     
-
     function handleSubmit(evt) {
         evt.preventDefault();
         newsApi.getNews(keyword)
