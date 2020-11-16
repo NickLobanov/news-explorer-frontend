@@ -55,7 +55,7 @@ function App() {
             formSubmit={handleFormSubmit}/>
         </Route>
         <Route path="/saved-news">
-          <SavedNews isLogged={isLogged}/>
+          <SavedNews isLogged={isLogged} cardList={cards}/>
         </Route>
       </Switch>
       <Footer />

@@ -4,12 +4,19 @@ import Header from '../Header/Header';
 import SavedNewsHeader from '../SavedNewsHeader/SaveNewsHeader';
 import NewsCardList from '../NewsCardList/NewsCardList';
 
-function SavedNews({isLogged}) {
+function SavedNews({isLogged, cardList}) {
     return (
         <>
             <Header isLogged={isLogged} darkType="dark"/>
             <SavedNewsHeader />
-            <NewsCardList typeButton="delete" hintText="Убрать из сохранённых" showTitle={false} showButton={false} showHint={true}/>
+            <NewsCardList typeButton="delete"
+                hintText="Убрать из сохранённых"
+                showTitle={false}
+                showButton={false}
+                showHint={true}
+                cards={cardList}
+                isVisible={true}
+                />
         </>
     )
 }
