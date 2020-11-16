@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer';
 import SavedNews from '../SavedNews/SavedNews';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import PopupWithMenu from '../PopupWithMenu/PopupWithMenu';
+import * as newsApi from '../../utils/NewsApi';
 
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
   const [isLogged, setLogged] = React.useState(true);
   const [isPopupWithFormOpen, setPopupWithFormClick] = React.useState(false);
   const [isPopupWithMenuOpen, setPopupWithMenuClick] = React.useState(false);
+  const [cards, setCards] = React.useState([]);
+  const [cardListVisible, setCardListVisible] = React.useState(false)
 
   //Открытие popup авторизации
   function handleAuthorizationBtn() {
@@ -29,6 +32,16 @@ function App() {
     setPopupWithMenuClick(false)
   }
 
+  //form handle
+  function handleFormSubmit(evt, keyword) {
+    evt.preventDefault();
+        newsApi.getNews(keyword)
+            .then((data) => {
+                setCards(data.articles)
+                setCardListVisible(true);
+            })
+  }
+
   return (
     <div className="page">
       <Switch>
@@ -36,7 +49,10 @@ function App() {
           <Main isLogged={isLogged}
             authBtnClick={handleAuthorizationBtn}
             burgerMenuClick={handleMenuBtn}
-            isMobileMenuActive={isPopupWithMenuOpen}/>
+            isMobileMenuActive={isPopupWithMenuOpen}
+            cardList={cards}
+            isCardVisible={cardListVisible}
+            formSubmit={handleFormSubmit}/>
         </Route>
         <Route path="/saved-news">
           <SavedNews isLogged={isLogged}/>

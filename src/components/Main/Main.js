@@ -4,25 +4,25 @@ import Header from '../Header/Header';
 import About from '../About/About';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import Preloader from '../Preloader/Preloader';
-import * as newsApi from '../../utils/NewsApi';
 
-function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive }) {
+
+function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, cardList, isCardVisible, formSubmit }) {
 
     const [keyword, setKeyword] = React.useState('');
-    const [cards, setCards] = React.useState([]);
-    const [cardListVisible, setCardListVisible] = React.useState(false)
+    const [lastItem, setLastItem] = React.useState(3)
 
     function handleInput(evt) {
         setKeyword(evt.target.value)
     }
     
-    function handleSubmit(evt) {
-        evt.preventDefault();
-        newsApi.getNews(keyword)
-            .then((data) => {
-                setCards(data.articles)
-                setCardListVisible(true);
-            })
+    function handleSubmit(evt, keyword) {
+        formSubmit(evt, keyword)
+    }
+
+    const cardsArr = cardList.slice(0, lastItem);
+
+    function increaseItem() {
+        setLastItem(lastItem + 3)
     }
 
     return (
@@ -43,9 +43,10 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive }) {
                 hintText="Войдите, чтобы сохранять статьи"
                 showTitle={true}
                 showButton={true}
-                cards={cards}
+                cards={cardsArr}
                 keywoed={keyword}
-                isVisible={cardListVisible}
+                isVisible={isCardVisible}
+                showMoreCards={increaseItem}
                 />
             <About />
         </>
