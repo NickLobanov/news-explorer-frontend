@@ -11,11 +11,16 @@ import * as newsApi from '../../utils/NewsApi';
 
 function App() {
 
-  const [isLogged, setLogged] = React.useState(false);
+  const [isLogged, setLogged] = React.useState(true);
   const [isPopupWithFormOpen, setPopupWithFormClick] = React.useState(false);
   const [isPopupWithMenuOpen, setPopupWithMenuClick] = React.useState(false);
   const [cards, setCards] = React.useState([]);
-  const [cardListVisible, setCardListVisible] = React.useState(false)
+  const [cardListVisible, setCardListVisible] = React.useState(false);
+  const [currentUser, setCurrentUser] = React.useState({});
+
+  React.useEffect(() => {
+
+  })
 
   //Открытие popup авторизации
   function handleAuthorizationBtn() {
