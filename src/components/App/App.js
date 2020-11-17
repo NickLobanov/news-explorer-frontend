@@ -20,7 +20,8 @@ function App() {
   const [cards, setCards] = React.useState([]);
   const [cardListVisible, setCardListVisible] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
-  const [signup, setSignup] = React.useState(true)
+  const [signup, setSignup] = React.useState(true);
+  const [currentKeyword, setKeyword] = React.useState('')
 
   React.useEffect(() => {
     //Проверка JWT токена
@@ -70,6 +71,7 @@ function App() {
   //form handle
   function handleFormSubmit(evt, keyword) {
     evt.preventDefault();
+    setKeyword(keyword);
     newsApi.getNews(keyword)
         .then((data) => {
             setCards(data.articles)

@@ -48,3 +48,28 @@ export const getUser = (token) => {
     })
     .then((res) => res.json())
 };
+
+export const post = (cardData, token, keyword) => {
+    return fetch(`${BASE_URL}/articles`, {
+        method: 'POST',
+        headers: {
+            'authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            keyword: keyword,
+            title: cardData.title,
+            text: cardData.text,
+            date: cardData.date,
+            source: cardData.source,
+            link: cardData.link,   
+            image: cardData.image
+        })
+    })
+    .then((res) => {
+        if (res.ok) {
+            return res.json;
+        }
+        return Promise.reject(`Ошибка: ${res.status}`)
+    })
+};
