@@ -46,9 +46,14 @@ function App() {
       .catch(err => console.log(err))
   }, [setLogged])
 
-  //Открытие popup авторизации
+  //Открытие popup авторизации / выход из профиля
   function handleAuthorizationBtn() {
-    setPopupWithFormClick(true)
+    if (isLogged) {
+      localStorage.removeItem('token')
+      setLogged(false)
+    } else {
+      setPopupWithFormClick(true)
+    }
   }
 
   function handleMenuBtn() {
