@@ -1,9 +1,17 @@
 import React from 'react';
 import './NewsCard.css';
 
-function NewsCard({ typeButton, hintText, showHint, sourceName, description, title, cardImage, keyword}) {
+function NewsCard({ typeButton, hintText, showHint, sourceName, description, title, cardImage, keyword, id, addCardClick}) {
+
+    function clickBookmark(evt) {
+        if (evt.target.classList.contains('news-card__button_add')) {
+            console.log(id)
+            addCardClick(id)
+        }
+    }
+
     return (
-        <div className="news-card">
+        <div className="news-card" onClick={clickBookmark}>
             <img src={cardImage} alt="Изображение статьи" className="news-card__image"/>
             <div className="news-card__wrap">
                 <p className="news-card__date">2 августа, 2019</p>

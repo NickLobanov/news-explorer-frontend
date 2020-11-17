@@ -35,11 +35,11 @@ function App() {
   //form handle
   function handleFormSubmit(evt, keyword) {
     evt.preventDefault();
-        newsApi.getNews(keyword)
-            .then((data) => {
-                setCards(data.articles)
-                setCardListVisible(true);
-            })
+    newsApi.getNews(keyword)
+        .then((data) => {
+            setCards(data.articles)
+            setCardListVisible(true);
+        })
   }
 
   return (

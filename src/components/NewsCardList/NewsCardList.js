@@ -4,6 +4,10 @@ import NewsCard from '../NewsCard/NewsCard';
 
 function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, cards, keyword, isVisible, showMoreCards }) {
 
+    function addCardClick(cardId) {
+        console.log(cards[cardId])
+    }
+
     return (
         <section className={`card-list ${isVisible ? "card-list_visability" : "card-list_hidden"}`}>
             <div className="card-list__container">
@@ -20,6 +24,7 @@ function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, c
                             title={data.title}
                             cardImage={data.urlToImage}
                             keyword={keyword}
+                            addCardClick={addCardClick}
                         />
                     ))}
                 </div>

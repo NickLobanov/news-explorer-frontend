@@ -15,7 +15,7 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, car
         setKeyword(evt.target.value)
     }
     
-    function handleSubmit(evt, keyword) {
+    function handleSubmit(evt) {
         formSubmit(evt, keyword)
     }
 
