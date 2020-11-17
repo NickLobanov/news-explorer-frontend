@@ -21,7 +21,6 @@ function App() {
   const [cardListVisible, setCardListVisible] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [signup, setSignup] = React.useState(true);
-  const [savedCards, saveNewCard] = React.useState([]);
 
   React.useEffect(() => {
     //Проверка JWT токена
@@ -91,7 +90,7 @@ function App() {
   function saveCard(cardData, token, keyword) {
     mainApi.post(cardData, token, keyword)
       .then((newCard) => {
-        saveNewCard([newCard, ...savedCards])
+        console.log(newCard)
       })
       .catch(err => console.log(err))
   }
@@ -112,7 +111,6 @@ function App() {
         </Route>
         <ProtectedRoute path="/saved-news"
           isLogged={isLogged}
-          cardList={cards}
           component={SavedNews}
         />
       </Switch>
