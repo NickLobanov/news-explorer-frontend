@@ -68,8 +68,24 @@ export const post = (cardData, token, keyword) => {
     })
     .then((res) => {
         if (res.ok) {
-            return res.json;
+            return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`)
+    })
+};
+
+export const getCards = (token) => {
+    return fetch(`${BASE_URL}/articles`, {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((res) => {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
     })
 };
