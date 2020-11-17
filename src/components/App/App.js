@@ -6,12 +6,13 @@ import Footer from '../Footer/Footer';
 import SavedNews from '../SavedNews/SavedNews';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import PopupWithMenu from '../PopupWithMenu/PopupWithMenu';
+import {CurrentUserContext} from '../../contexts/currentUserContext';
 import * as newsApi from '../../utils/NewsApi';
 
 
 function App() {
 
-  const [isLogged, setLogged] = React.useState(true);
+  const [isLogged, setLogged] = React.useState(false);
   const [isPopupWithFormOpen, setPopupWithFormClick] = React.useState(false);
   const [isPopupWithMenuOpen, setPopupWithMenuClick] = React.useState(false);
   const [cards, setCards] = React.useState([]);
@@ -49,6 +50,7 @@ function App() {
 
   return (
     <div className="page">
+      <CurrentUserContext.Provider value={currentUser}>
       <Switch>
         <Route exact path="/">
           <Main isLogged={isLogged}
@@ -66,6 +68,7 @@ function App() {
       <Footer />
       <PopupWithForm isOpen={isPopupWithFormOpen} isClose={closeAllPopup}/>
       <PopupWithMenu isLogged={isLogged} menuType={'mobile'} isOpen={isPopupWithMenuOpen} isClose={closeAllPopup}/>
+      </CurrentUserContext.Provider>
     </div>
   );
 }

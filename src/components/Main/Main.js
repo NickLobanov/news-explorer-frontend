@@ -4,9 +4,12 @@ import Header from '../Header/Header';
 import About from '../About/About';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import Preloader from '../Preloader/Preloader';
+import { CurrentUserContext } from '../../contexts/currentUserContext';
 
 
 function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, cardList, isCardVisible, formSubmit }) {
+
+    const currentUser = React.useContext(CurrentUserContext)
 
     const [keyword, setKeyword] = React.useState('');
     const [lastItem, setLastItem] = React.useState(3)
@@ -28,7 +31,12 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, car
     return (
         <>
             <div className="main">
-                <Header isLogged={isLogged} authBtnClick={authBtnClick} burgerMenuClick={burgerMenuClick} isMobileMenuActive={isMobileMenuActive}/>
+                <Header isLogged={isLogged}
+                    authBtnClick={authBtnClick}
+                    burgerMenuClick={burgerMenuClick}
+                    isMobileMenuActive={isMobileMenuActive}
+                    userName={currentUser.name}
+                />
                 <form className="main__form" onSubmit={handleSubmit}>
                     <h1 className="main__title">Что творится в мире?</h1>
                     <p className="main__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
