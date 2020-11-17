@@ -11,7 +11,7 @@ import * as newsApi from '../../utils/NewsApi';
 
 function App() {
 
-  const [isLogged, setLogged] = React.useState(true);
+  const [isLogged, setLogged] = React.useState(false);
   const [isPopupWithFormOpen, setPopupWithFormClick] = React.useState(false);
   const [isPopupWithMenuOpen, setPopupWithMenuClick] = React.useState(false);
   const [cards, setCards] = React.useState([]);
