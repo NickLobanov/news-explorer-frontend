@@ -39,6 +39,7 @@ function PopupWithForm({ isOpen, isClose }) {
                     setPassword('');
                 }
             })
+        
     }
 
     //Регистрация пользователя
@@ -51,13 +52,14 @@ function PopupWithForm({ isOpen, isClose }) {
             .then((res) => {
                 console.log(res)
             })
+        switchPopup()
     }
 
-    function handleSubmit() {
+    function handleSubmit(evt) {
         if (signup) {
-            handleSubmitAuth()
+            handleSubmitAuth(evt)
         } else {
-            handleSubmitReg()
+            handleSubmitReg(evt)
         }
     }
 
