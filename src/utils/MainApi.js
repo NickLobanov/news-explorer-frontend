@@ -37,7 +37,7 @@ export const authorization = (email, password) => {
     .catch(err => console.log(err));
 };
 
-export const tokenCheck = (token) => {
+export const getUser = (token) => {
     return fetch(`${BASE_URL}/users/me`, {
         method: 'GET',
         headers: {

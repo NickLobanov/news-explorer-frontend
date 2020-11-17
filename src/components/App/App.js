@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main';
@@ -8,6 +8,7 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import PopupWithMenu from '../PopupWithMenu/PopupWithMenu';
 import {CurrentUserContext} from '../../contexts/currentUserContext';
 import * as newsApi from '../../utils/NewsApi';
+import * as mainApi from '../../utils/MainApi';
 
 
 function App() {
@@ -18,10 +19,32 @@ function App() {
   const [cards, setCards] = React.useState([]);
   const [cardListVisible, setCardListVisible] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
+  const [signup, setSignup] = React.useState(true)
 
   React.useEffect(() => {
+    //Проверка JWT токена
+    function tokenCheck() {
+      if(localStorage.getItem('token')) {
+        const jwt = localStorage.getItem('token')
+        mainApi.getUser(jwt)
+        .then((res) => {
+            console.log(`tokencheck: ${res}`)
+            if(res) {
+              setLogged(true)
+            }
+        })
+      }
+    }
+    tokenCheck()
+  }, [])
 
-  })
+  React.useEffect(() => {
+    mainApi.getUser(localStorage.getItem('token'))
+      .then((userData) => {
+        setCurrentUser(userData)
+      })
+      .catch(err => console.log(err))
+  }, [setLogged])
 
   //Открытие popup авторизации
   function handleAuthorizationBtn() {
@@ -48,6 +71,15 @@ function App() {
         })
   }
 
+  //Смена popup
+  function switchPopup() {
+    setSignup(!signup)
+  }
+
+  function handleLogin() {
+    setLogged(true)
+  }
+
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
@@ -66,7 +98,7 @@ function App() {
         </Route>
       </Switch>
       <Footer />
-      <PopupWithForm isOpen={isPopupWithFormOpen} isClose={closeAllPopup}/>
+      <PopupWithForm isOpen={isPopupWithFormOpen} isClose={closeAllPopup} isSignup={signup} switchPopup={switchPopup} isLogged={handleLogin}/>
       <PopupWithMenu isLogged={isLogged} menuType={'mobile'} isOpen={isPopupWithMenuOpen} isClose={closeAllPopup}/>
       </CurrentUserContext.Provider>
     </div>

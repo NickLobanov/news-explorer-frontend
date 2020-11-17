@@ -2,7 +2,7 @@ import React from 'react';
 import './PopupWithForm.css';
 import * as mainApi from '../../utils/MainApi';
 
-function PopupWithForm({ isOpen, isClose }) {
+function PopupWithForm({ isOpen, isClose, isLogged }) {
 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -37,6 +37,7 @@ function PopupWithForm({ isOpen, isClose }) {
                 if(data.token) {
                     setEmail('');
                     setPassword('');
+                    isLogged()
                 }
             })
         
