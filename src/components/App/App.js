@@ -9,6 +9,7 @@ import PopupWithMenu from '../PopupWithMenu/PopupWithMenu';
 import {CurrentUserContext} from '../../contexts/currentUserContext';
 import * as newsApi from '../../utils/NewsApi';
 import * as mainApi from '../../utils/MainApi';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 
 function App() {
@@ -98,9 +99,11 @@ function App() {
             isCardVisible={cardListVisible}
             formSubmit={handleFormSubmit}/>
         </Route>
-        <Route path="/saved-news">
-          <SavedNews isLogged={isLogged} cardList={cards}/>
-        </Route>
+        <ProtectedRoute path="/saved-news"
+          isLogged={isLogged}
+          cardList={cards}
+          component={SavedNews}
+        />
       </Switch>
       <Footer />
       <PopupWithForm isOpen={isPopupWithFormOpen} isClose={closeAllPopup} isSignup={signup} switchPopup={switchPopup} isLogged={handleLogin}/>
