@@ -21,7 +21,7 @@ function App() {
   const [cardListVisible, setCardListVisible] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [signup, setSignup] = React.useState(true);
-  const [currentKeyword, setKeyword] = React.useState('')
+  const [savedCards, saveNewCard] = React.useState([]);
 
   React.useEffect(() => {
     //Проверка JWT токена
@@ -71,7 +71,6 @@ function App() {
   //form handle
   function handleFormSubmit(evt, keyword) {
     evt.preventDefault();
-    setKeyword(keyword);
     newsApi.getNews(keyword)
         .then((data) => {
             setCards(data.articles)
@@ -88,6 +87,15 @@ function App() {
     setLogged(true)
   }
 
+  //Сохранение карточки
+  function saveCard(cardData, token, keyword) {
+    mainApi.post(cardData, token, keyword)
+      .then((newCard) => {
+        saveNewCard([newCard, ...savedCards])
+      })
+      .catch(err => console.log(err))
+  }
+
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
@@ -99,7 +107,8 @@ function App() {
             isMobileMenuActive={isPopupWithMenuOpen}
             cardList={cards}
             isCardVisible={cardListVisible}
-            formSubmit={handleFormSubmit}/>
+            formSubmit={handleFormSubmit}
+            saveCard={saveCard}/>
         </Route>
         <ProtectedRoute path="/saved-news"
           isLogged={isLogged}

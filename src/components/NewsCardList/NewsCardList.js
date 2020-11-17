@@ -2,10 +2,17 @@ import React from 'react';
 import './NewsCardList.css';
 import NewsCard from '../NewsCard/NewsCard';
 
-function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, cards, keyword, isVisible, showMoreCards }) {
+function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, cards, keyword, isVisible, showMoreCards, saveCard }) {
 
     function addCardClick(cardId) {
-        console.log(cards[cardId])
+        saveCard({
+            title: cards[cardId].title,
+            text: cards[cardId].text,
+            date: cards[cardId].date,
+            source: cards[cardId].source,
+            link: cards[cardId].link,   
+            image: cards[cardId].image
+        }, keyword, localStorage.getItem('token'))
     }
 
     return (

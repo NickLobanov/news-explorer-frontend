@@ -7,7 +7,7 @@ import Preloader from '../Preloader/Preloader';
 import { CurrentUserContext } from '../../contexts/currentUserContext';
 
 
-function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, cardList, isCardVisible, formSubmit }) {
+function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, cardList, isCardVisible, formSubmit, saveCard }) {
 
     const currentUser = React.useContext(CurrentUserContext)
 
@@ -52,9 +52,10 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, car
                 showTitle={true}
                 showButton={true}
                 cards={cardsArr}
-                keywoed={keyword}
+                keyword={keyword}
                 isVisible={isCardVisible}
                 showMoreCards={increaseItem}
+                saveCard={saveCard}
                 />
             <About />
         </>
