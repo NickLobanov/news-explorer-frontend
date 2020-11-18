@@ -107,11 +107,11 @@ function App() {
 
   //Сохранение карточки
   function saveCard(cardData, keyword, token) {
-    mainApi.post(cardData, keyword, token)
-      .then((newCard) => {
-        setSavedCard([...savedCard, newCard])
-      })
-      .catch(err => console.log(err))
+      mainApi.post(cardData, keyword, token)
+        .then((newCard) => {
+          setSavedCard([...savedCard, newCard])
+        })
+        .catch(err => console.log(err))
   }
 
   //Удаление карточки

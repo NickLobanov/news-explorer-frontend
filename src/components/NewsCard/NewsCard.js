@@ -1,9 +1,13 @@
 import React from 'react';
 import './NewsCard.css';
 
-function NewsCard({ typeButton, hintText, showHint, sourceName, description, title, cardImage, keyword, id, addCardClick, cardKey, deleteCard, isLogged}) {
+function NewsCard({ typeButton, hintText, showHint, sourceName, description, title, cardImage, keyword, id, addCardClick, cardKey, deleteCard, isLogged, date}) {
 
-    const [hintActive, setHintActive] = React.useState(false)
+    const [hintActive, setHintActive] = React.useState(false);
+    const [day, setDay] = React.useState('');
+    const [mounth, setMounth] = React.useState('');
+    const [year, setYeary] = React.useState('');
+
 
     function mouseOver() {
         setHintActive(true)
@@ -24,11 +28,12 @@ function NewsCard({ typeButton, hintText, showHint, sourceName, description, tit
         }
     }
 
+
     return (
         <div className="news-card" onClick={clickBookmark}>
             <img src={cardImage} alt="Изображение статьи" className="news-card__image"/>
             <div className="news-card__wrap">
-                <p className="news-card__date">2 августа, 2019</p>
+            <p className="news-card__date">{date}</p>
                 <h3 className="news-card__title">{title}</h3>
                 <p className="news-card__text">{description}</p>
                 <p className="news-card__source">{sourceName}</p>
