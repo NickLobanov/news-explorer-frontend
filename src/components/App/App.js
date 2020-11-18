@@ -41,9 +41,11 @@ function App() {
   }, [])
 
   React.useEffect(() => {
-    mainApi.getUser(localStorage.getItem('token'))
-      .then((userData) => {
+    const jwt = localStorage.getItem('token')
+    Promise.all([mainApi.getUser(jwt), mainApi.getCards(jwt)])
+      .then(([userData, saveCardData]) => {
         setCurrentUser(userData)
+        setSavedCard(saveCardData)
       })
       .catch(err => console.log(err))
   }, [isLogged])
@@ -103,6 +105,29 @@ function App() {
       .catch(err => console.log(err))
   }
 
+  //Авторизация пользователя
+  function authHadnler(email, password) {
+    mainApi.authorization(email, password)
+      .then(data => {
+        if (data) {
+          console.log('success');
+          setLogged(true)
+          closeAllPopup()
+        }
+      })
+  }
+
+  //Регистрация пользователя
+  function regHandler(email, password, name) {
+    mainApi.register(email, password, name)
+      .then(data => {
+        if (data) {
+          console.log('success');
+          closeAllPopup()
+        }
+      })
+  }
+
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
@@ -121,10 +146,18 @@ function App() {
           isLogged={isLogged}
           component={SavedNews}
           deleteCard={deleteCard}
+          savedCards={savedCard}
         />
       </Switch>
       <Footer />
-      <PopupWithForm isOpen={isPopupWithFormOpen} isClose={closeAllPopup} isSignup={signup} switchPopup={switchPopup} isLogged={handleLogin}/>
+      <PopupWithForm isOpen={isPopupWithFormOpen}
+        isClose={closeAllPopup}
+        isSignup={signup}
+        switchPopup={switchPopup}
+        isLogged={handleLogin}
+        authHandler={authHadnler}
+        regHandler={regHandler}
+      />
       <PopupWithMenu isLogged={isLogged} menuType={'mobile'} isOpen={isPopupWithMenuOpen} isClose={closeAllPopup}/>
       </CurrentUserContext.Provider>
     </div>

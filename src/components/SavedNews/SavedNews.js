@@ -7,30 +7,26 @@ import { CurrentUserContext } from '../../contexts/currentUserContext';
 import * as mainApi from '../../utils/MainApi';
 
 
-function SavedNews({ isLogged, deleteCard }) {
+function SavedNews({ isLogged, deleteCard, savedCards }) {
 
     const currentUser = React.useContext(CurrentUserContext);
-    const [savedCards, saveNewCard] = React.useState([]);
+    const [savedUserCards, setUserCards] = React.useState([]);
 
-    React.useEffect(() => {
-        mainApi.getCards(localStorage.getItem('token'))
-            .then((data) => {
-                saveNewCard(data.filter(item => item.owner === currentUser._id))
-            })
-            .catch(err => console.log(err))
+    React.useEffect(() => { 
+        setUserCards(savedCards.filter(item => item.owner === currentUser._id))    
     }, [])
 
     return (
         <>
             <Header isLogged={isLogged} darkType="dark" userName={currentUser.name}/>
-            <SavedNewsHeader userName={currentUser.name} amoutArticles={savedCards}/>
+            <SavedNewsHeader userName={currentUser.name} amoutArticles={savedUserCards}/>
             <NewsCardList typeButton="delete"
                 hintText="Убрать из сохранённых"
                 showTitle={false}
                 showButton={false}
                 showHint={true}
                 isVisible={true}
-                cards={savedCards}
+                cards={savedUserCards}
                 deleteCard={deleteCard}
                 />
         </>

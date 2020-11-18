@@ -2,7 +2,7 @@ import React from 'react';
 import './PopupWithForm.css';
 import * as mainApi from '../../utils/MainApi';
 
-function PopupWithForm({ isOpen, isClose, isLogged }) {
+function PopupWithForm({ isOpen, isClose, isLogged, authHandler, regHandler }) {
 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -59,16 +59,7 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
         if (!email || !password) {
             return
         }
-        mainApi.authorization(email, password)
-            .then((data) => {
-                console.log(data)
-                if(data.token) {
-                    setEmail('');
-                    setPassword('');
-                    isLogged()
-                }
-            })
-        
+        authHandler(email, password)
     }
 
     //Регистрация пользователя
@@ -77,10 +68,7 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
         if (!email || !password || !name) {
             return
         }
-        mainApi.register(email, password, name)
-            .then((res) => {
-                console.log(res)
-            })
+        regHandler(email, password, name)
         switchPopup()
     }
 
