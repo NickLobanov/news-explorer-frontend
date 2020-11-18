@@ -4,20 +4,20 @@ import Header from '../Header/Header';
 import SavedNewsHeader from '../SavedNewsHeader/SaveNewsHeader';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import { CurrentUserContext } from '../../contexts/currentUserContext';
-import * as mainApi from '../../utils/MainApi';
+
 
 function SavedNews({ isLogged }) {
 
     const currentUser = React.useContext(CurrentUserContext);
-    const [savedCards, saveNewCard] = React.useState([]);
+    // const [savedCards, saveNewCard] = React.useState([]);
 
-    React.useEffect(() => {
-        mainApi.getCards(localStorage.getItem('token'))
-            .then((data) => {
-                saveNewCard(data)
-            })
-            .catch(err => console.log(err))
-    })
+    // React.useEffect(() => {
+    //     mainApi.getCards(localStorage.getItem('token'))
+    //         .then((data) => {
+    //             saveNewCard(data)
+    //         })
+    //         .catch(err => console.log(err))
+    // }, [])
 
     return (
         <>
@@ -28,7 +28,6 @@ function SavedNews({ isLogged }) {
                 showTitle={false}
                 showButton={false}
                 showHint={true}
-                cards={savedCards}
                 isVisible={true}
                 />
         </>

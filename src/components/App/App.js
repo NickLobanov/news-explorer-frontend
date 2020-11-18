@@ -45,7 +45,7 @@ function App() {
         setCurrentUser(userData)
       })
       .catch(err => console.log(err))
-  }, [setLogged])
+  }, [isLogged])
 
   //Открытие popup авторизации / выход из профиля
   function handleAuthorizationBtn() {
@@ -87,10 +87,13 @@ function App() {
   }
 
   //Сохранение карточки
-  function saveCard(cardData, token, keyword) {
-    mainApi.post(cardData, token, keyword)
+  function saveCard(cardData, keyword, token) {
+    console.log(cardData)
+    console.log(token)
+    console.log(keyword)
+    mainApi.post(cardData, keyword, token)
       .then((newCard) => {
-        console.log(newCard)
+        console.log(`saveCard: ${newCard}`)
       })
       .catch(err => console.log(err))
   }

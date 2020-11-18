@@ -49,12 +49,13 @@ export const getUser = (token) => {
     .then((res) => res.json())
 };
 
-export const post = (cardData, token, keyword) => {
+export const post = (cardData, keyword, token) => {
     return fetch(`${BASE_URL}/articles`, {
         method: 'POST',
         headers: {
-            'authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
             keyword: keyword,
