@@ -15,8 +15,7 @@ function SavedNews({ isLogged }) {
     React.useEffect(() => {
         mainApi.getCards(localStorage.getItem('token'))
             .then((data) => {
-                console.log(data)
-                saveNewCard(data)
+                saveNewCard(data.filter(item => item.owner === currentUser._id))
             })
             .catch(err => console.log(err))
     }, [])
@@ -24,7 +23,7 @@ function SavedNews({ isLogged }) {
     return (
         <>
             <Header isLogged={isLogged} darkType="dark" userName={currentUser.name}/>
-            <SavedNewsHeader userName={currentUser.name}/>
+            <SavedNewsHeader userName={currentUser.name} amoutArticles={savedCards}/>
             <NewsCardList typeButton="delete"
                 hintText="Убрать из сохранённых"
                 showTitle={false}
