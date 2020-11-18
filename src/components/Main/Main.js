@@ -7,7 +7,7 @@ import Preloader from '../Preloader/Preloader';
 import { CurrentUserContext } from '../../contexts/currentUserContext';
 
 
-function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, cardList, isCardVisible, formSubmit, saveCard }) {
+function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, cardList, isCardVisible, formSubmit, saveCard, isPreloader }) {
 
     const currentUser = React.useContext(CurrentUserContext)
 
@@ -46,7 +46,7 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, car
                     </div>
                 </form>
             </div>
-            <Preloader />
+            <Preloader isActive={isPreloader}/>
             <NewsCardList typeButton="add"
                 hintText="Войдите, чтобы сохранять статьи"
                 showTitle={true}

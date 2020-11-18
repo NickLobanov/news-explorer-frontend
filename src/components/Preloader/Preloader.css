@@ -6,6 +6,10 @@
 	display: none;
 }
 
+.preloader_active {
+	display: block;
+}
+
 .preloader__circle {
 	display: block;
 	width: 74px;

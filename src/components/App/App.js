@@ -24,6 +24,7 @@ function App() {
   const [cardListVisible, setCardListVisible] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [signup, setSignup] = React.useState(true);
+  const [isPreloaderActive, setPreloaderActive] = React.useState(false)
 
   React.useEffect(() => {
     //Проверка JWT токена
@@ -83,11 +84,16 @@ function App() {
   //form handle
   function handleFormSubmit(evt, keyword) {
     evt.preventDefault();
+    setPreloaderActive(true)
     newsApi.getNews(keyword)
+        .finally(() => {
+          setPreloaderActive(false)
+        })
         .then((data) => {
             setCards(data.articles)
             setCardListVisible(true);
         })
+        .catch(err => console.log(err))
   }
 
   //Смена popup
@@ -151,7 +157,8 @@ function App() {
             cardList={cards}
             isCardVisible={cardListVisible}
             formSubmit={handleFormSubmit}
-            saveCard={saveCard}/>
+            saveCard={saveCard}
+            isPreloader={isPreloaderActive}/>
         </Route>
         <ProtectedRoute path="/saved-news"
           isLogged={isLogged}
