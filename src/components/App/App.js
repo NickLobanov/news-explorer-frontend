@@ -88,13 +88,17 @@ function App() {
 
   //Сохранение карточки
   function saveCard(cardData, keyword, token) {
-    console.log(cardData)
-    console.log(token)
-    console.log(keyword)
     mainApi.post(cardData, keyword, token)
       .then((newCard) => {
         console.log(`saveCard: ${newCard}`)
       })
+      .catch(err => console.log(err))
+  }
+
+  //Удаление карточки
+  function deleteCard(cardId, token) {
+    mainApi.deleteCard(token, cardId)
+      .then(card => console.log(card))
       .catch(err => console.log(err))
   }
 
@@ -115,6 +119,7 @@ function App() {
         <ProtectedRoute path="/saved-news"
           isLogged={isLogged}
           component={SavedNews}
+          deleteCard={deleteCard}
         />
       </Switch>
       <Footer />

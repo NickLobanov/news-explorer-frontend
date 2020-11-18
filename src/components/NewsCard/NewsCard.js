@@ -1,12 +1,16 @@
 import React from 'react';
 import './NewsCard.css';
 
-function NewsCard({ typeButton, hintText, showHint, sourceName, description, title, cardImage, keyword, id, addCardClick}) {
+function NewsCard({ typeButton, hintText, showHint, sourceName, description, title, cardImage, keyword, id, addCardClick, cardKey, deleteCard}) {
 
     function clickBookmark(evt) {
         if (evt.target.classList.contains('news-card__button_add')) {
             console.log(id)
             addCardClick(id)
+        }
+        if (evt.target.classList.contains('news-card__button_delete')) {
+            deleteCard(cardKey, localStorage.getItem('token'))
+            console.log(cardKey)
         }
     }
 

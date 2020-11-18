@@ -2,7 +2,7 @@ import React from 'react';
 import './NewsCardList.css';
 import NewsCard from '../NewsCard/NewsCard';
 
-function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, cards, keyword, isVisible, showMoreCards, saveCard }) {
+function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, cards, keyword, isVisible, showMoreCards, saveCard, deleteCard }) {
 
     function addCardClick(cardId) {
         console.log(cards[cardId])
@@ -16,6 +16,8 @@ function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, c
         }, keyword, localStorage.getItem('token'))
     }
 
+
+
     return (
         <section className={`card-list ${isVisible ? "card-list_visability" : "card-list_hidden"}`}>
             <div className="card-list__container">
@@ -24,7 +26,8 @@ function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, c
                     {cards.map((data, index) => (
                         <NewsCard typeButton={typeButton}
                             id={index}
-                            key={index}
+                            key={data._id}
+                            cardKey={data._id}
                             hintText={hintText}
                             showHint={showHint}
                             sourceName={data.source.name || data.source}
@@ -33,6 +36,7 @@ function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, c
                             cardImage={data.urlToImage || data.image}
                             keyword={data.keyword}
                             addCardClick={addCardClick}
+                            deleteCard={deleteCard}
                         />
                     ))}
                 </div>

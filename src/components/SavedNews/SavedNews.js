@@ -7,7 +7,7 @@ import { CurrentUserContext } from '../../contexts/currentUserContext';
 import * as mainApi from '../../utils/MainApi';
 
 
-function SavedNews({ isLogged }) {
+function SavedNews({ isLogged, deleteCard }) {
 
     const currentUser = React.useContext(CurrentUserContext);
     const [savedCards, saveNewCard] = React.useState([]);
@@ -31,6 +31,7 @@ function SavedNews({ isLogged }) {
                 showHint={true}
                 isVisible={true}
                 cards={savedCards}
+                deleteCard={deleteCard}
                 />
         </>
     )
