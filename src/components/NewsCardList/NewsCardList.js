@@ -27,11 +27,11 @@ function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, c
                             key={index}
                             hintText={hintText}
                             showHint={showHint}
-                            sourceName={data.source.name}
-                            description={data.description}
+                            sourceName={data.source.name || data.source}
+                            description={data.description || data.text}
                             title={data.title}
-                            cardImage={data.urlToImage}
-                            keyword={keyword}
+                            cardImage={data.urlToImage || data.image}
+                            keyword={data.keyword}
                             addCardClick={addCardClick}
                         />
                     ))}
