@@ -7,7 +7,7 @@ import { CurrentUserContext } from '../../contexts/currentUserContext';
 import * as mainApi from '../../utils/MainApi';
 
 
-function SavedNews({ isLogged, deleteCard, savedCards }) {
+function SavedNews({ isLogged, deleteCard, savedCards, singOut }) {
 
     const currentUser = React.useContext(CurrentUserContext);
     const [savedUserCards, setUserCards] = React.useState([]);
@@ -18,7 +18,7 @@ function SavedNews({ isLogged, deleteCard, savedCards }) {
 
     return (
         <>
-            <Header isLogged={isLogged} darkType="dark" userName={currentUser.name}/>
+            <Header isLogged={isLogged} darkType="dark" userName={currentUser.name} authBtnClick={singOut}/>
             <SavedNewsHeader userName={currentUser.name} amoutArticles={savedUserCards}/>
             <NewsCardList typeButton="delete"
                 hintText="Убрать из сохранённых"

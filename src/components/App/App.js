@@ -156,6 +156,7 @@ function App() {
           component={SavedNews}
           deleteCard={deleteCard}
           savedCards={savedCard}
+          singOut={handleAuthorizationBtn}
         />
       </Switch>
       <Footer />
