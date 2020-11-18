@@ -96,6 +96,11 @@
     border-radius: 10px;
     margin-left: auto;
     margin-right: 5px;
+    visibility: hidden;
+}
+
+.news-card__hint_active {
+    visibility: visible;
 }
 
 .news-card__button {

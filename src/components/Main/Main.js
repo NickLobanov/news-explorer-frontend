@@ -56,6 +56,7 @@ function Main({ isLogged, authBtnClick, burgerMenuClick, isMobileMenuActive, car
                 isVisible={isCardVisible}
                 showMoreCards={increaseItem}
                 saveCard={saveCard}
+                isLogged={isLogged}
                 />
             <About />
         </>

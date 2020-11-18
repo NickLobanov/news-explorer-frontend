@@ -81,19 +81,19 @@ function App() {
     setPopupSuccessOpen(false)
   }
 
-  //form handle
+  //Получение карточки
   function handleFormSubmit(evt, keyword) {
     evt.preventDefault();
     setPreloaderActive(true)
     newsApi.getNews(keyword)
-        .finally(() => {
-          setPreloaderActive(false)
-        })
-        .then((data) => {
-            setCards(data.articles)
-            setCardListVisible(true);
-        })
-        .catch(err => console.log(err))
+      .finally(() => {
+        setPreloaderActive(false)
+      })
+      .then((data) => {
+          setCards(data.articles)
+          setCardListVisible(true);
+      })
+      .catch(err => console.log(err))
   }
 
   //Смена popup
@@ -109,7 +109,7 @@ function App() {
   function saveCard(cardData, keyword, token) {
     mainApi.post(cardData, keyword, token)
       .then((newCard) => {
-        console.log(`saveCard: ${newCard}`)
+        setSavedCard([...savedCard, newCard])
       })
       .catch(err => console.log(err))
   }
@@ -117,7 +117,12 @@ function App() {
   //Удаление карточки
   function deleteCard(cardId, token) {
     mainApi.deleteCard(token, cardId)
-      .then(card => console.log(card))
+      .then(() => {
+        const newCardArr = savedCard.map((item) => {
+          return item._id !== item.cardId
+        });
+        setSavedCard(newCardArr)
+      })
       .catch(err => console.log(err))
   }
 
