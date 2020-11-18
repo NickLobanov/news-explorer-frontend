@@ -10,6 +10,7 @@ import {CurrentUserContext} from '../../contexts/currentUserContext';
 import * as newsApi from '../../utils/NewsApi';
 import * as mainApi from '../../utils/MainApi';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import PopupSuccess from '../PopupSuccess/PopupSuccess';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
   const [isLogged, setLogged] = React.useState(false);
   const [isPopupWithFormOpen, setPopupWithFormClick] = React.useState(false);
   const [isPopupWithMenuOpen, setPopupWithMenuClick] = React.useState(false);
+  const [isPopupSuccessOpen, setPopupSuccessOpen] = React.useState(false);
   const [cards, setCards] = React.useState([]);
   const [savedCard, setSavedCard] = React.useState([]);
   const [cardListVisible, setCardListVisible] = React.useState(false);
@@ -64,10 +66,16 @@ function App() {
     setPopupWithMenuClick(true)
   }
 
+  function handleAuthPopupOpen() {
+    setPopupSuccessOpen(false)
+    setPopupWithFormClick(true)
+  }
+
   //Закрытие popup
   function closeAllPopup() {
     setPopupWithFormClick(false)
     setPopupWithMenuClick(false)
+    setPopupSuccessOpen(false)
   }
 
   //form handle
@@ -123,7 +131,8 @@ function App() {
       .then(data => {
         if (data) {
           console.log('success');
-          closeAllPopup()
+          closeAllPopup();
+          setPopupSuccessOpen(true)
         }
       })
   }
@@ -159,6 +168,7 @@ function App() {
         regHandler={regHandler}
       />
       <PopupWithMenu isLogged={isLogged} menuType={'mobile'} isOpen={isPopupWithMenuOpen} isClose={closeAllPopup}/>
+      <PopupSuccess isOpen={isPopupSuccessOpen} isClose={closeAllPopup} openAuthPopup={handleAuthPopupOpen}/>
       </CurrentUserContext.Provider>
     </div>
   );

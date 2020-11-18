@@ -1,6 +1,6 @@
 import React from 'react';
 import './PopupWithForm.css';
-import * as mainApi from '../../utils/MainApi';
+
 
 function PopupWithForm({ isOpen, isClose, isLogged, authHandler, regHandler }) {
 
@@ -69,7 +69,6 @@ function PopupWithForm({ isOpen, isClose, isLogged, authHandler, regHandler }) {
             return
         }
         regHandler(email, password, name)
-        switchPopup()
     }
 
     function handleSubmit(evt) {
