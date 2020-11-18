@@ -3,11 +3,10 @@ import './SavedNews.css';
 import Header from '../Header/Header';
 import SavedNewsHeader from '../SavedNewsHeader/SaveNewsHeader';
 import NewsCardList from '../NewsCardList/NewsCardList';
-import { CurrentUserContext } from '../../contexts/currentUserContext';
-import * as mainApi from '../../utils/MainApi';
+import { CurrentUserContext } from '../../contexts/currentUserContext';;
 
 
-function SavedNews({ isLogged, deleteCard, savedCards, singOut }) {
+function SavedNews({ isLogged, deleteCard, savedCards, singOut, isMobileMenuActive, burgerMenuClick }) {
 
     const currentUser = React.useContext(CurrentUserContext);
     const [savedUserCards, setUserCards] = React.useState([]);
@@ -18,7 +17,13 @@ function SavedNews({ isLogged, deleteCard, savedCards, singOut }) {
 
     return (
         <>
-            <Header isLogged={isLogged} darkType="dark" userName={currentUser.name} authBtnClick={singOut}/>
+            <Header isLogged={isLogged}
+                darkType="dark"
+                userName={currentUser.name}
+                authBtnClick={singOut}
+                isMobileMenuActive={isMobileMenuActive}
+                burgerMenuClick={burgerMenuClick}
+            />
             <SavedNewsHeader userName={currentUser.name} amoutArticles={savedUserCards}/>
             <NewsCardList typeButton="delete"
                 hintText="Убрать из сохранённых"

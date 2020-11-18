@@ -57,8 +57,10 @@ function App() {
     if (isLogged) {
       localStorage.removeItem('token')
       setLogged(false)
+      setPopupWithMenuClick(false)
     } else {
       setPopupWithFormClick(true)
+      setPopupWithMenuClick(false)
     }
   }
 
@@ -157,6 +159,8 @@ function App() {
           deleteCard={deleteCard}
           savedCards={savedCard}
           singOut={handleAuthorizationBtn}
+          isMobileMenuActive={isPopupWithMenuOpen}
+          burgerMenuClick={handleMenuBtn}
         />
       </Switch>
       <Footer />
@@ -168,7 +172,11 @@ function App() {
         authHandler={authHadnler}
         regHandler={regHandler}
       />
-      <PopupWithMenu isLogged={isLogged} menuType={'mobile'} isOpen={isPopupWithMenuOpen} isClose={closeAllPopup}/>
+      <PopupWithMenu isLogged={isLogged}
+        menuType={'mobile'}
+        isOpen={isPopupWithMenuOpen}
+        isClose={closeAllPopup}
+        signOut={handleAuthorizationBtn}/>
       <PopupSuccess isOpen={isPopupSuccessOpen} isClose={closeAllPopup} openAuthPopup={handleAuthPopupOpen}/>
       </CurrentUserContext.Provider>
     </div>

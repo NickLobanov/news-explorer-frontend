@@ -2,7 +2,7 @@ import React from 'react';
 import './Navigation.css';
 import { NavLink } from 'react-router-dom';
 
-function Navigation ({ isLogged, darkType, menuType, authBtnClick, userName }) {
+function Navigation ({ isLogged, darkType, menuType, authBtnClick, userName, closePopupWithMenu }) {
 
 
     return (
@@ -14,7 +14,8 @@ function Navigation ({ isLogged, darkType, menuType, authBtnClick, userName }) {
                 <li className={`nav__item nav__item_${menuType}`}>
                     <NavLink to="/saved-news"
                         activeClassName="nav__ref_active_save"
-                        className={`nav__save-article nav__ref nav__ref_${darkType} nav__ref_${menuType}`}>Сохранённые статьи
+                        className={`nav__save-article nav__ref nav__ref_${darkType} nav__ref_${menuType}`}
+                        onClick={closePopupWithMenu}>Сохранённые статьи
                     </NavLink>
                 </li>
             }
