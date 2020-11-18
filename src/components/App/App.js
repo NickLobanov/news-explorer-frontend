@@ -18,6 +18,7 @@ function App() {
   const [isPopupWithFormOpen, setPopupWithFormClick] = React.useState(false);
   const [isPopupWithMenuOpen, setPopupWithMenuClick] = React.useState(false);
   const [cards, setCards] = React.useState([]);
+  const [savedCard, setSavedCard] = React.useState([]);
   const [cardListVisible, setCardListVisible] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [signup, setSignup] = React.useState(true);
@@ -27,13 +28,13 @@ function App() {
     function tokenCheck() {
       if(localStorage.getItem('token')) {
         const jwt = localStorage.getItem('token')
-        mainApi.getUser(jwt)
-        .then((res) => {
-            console.log(`tokencheck: ${res}`)
-            if(res) {
-              setLogged(true)
+        Promise.all([mainApi.getUser(jwt), mainApi.getCards(jwt)])
+          .then(([userData, saveCardData]) => {
+            if (userData) {
+              setLogged(true);
+              setSavedCard(saveCardData)
             }
-        })
+          })
       }
     }
     tokenCheck()

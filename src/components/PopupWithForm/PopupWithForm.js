@@ -93,6 +93,9 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
     }
 
     function handleClose() {
+        setEmail('');
+        setPassword('');
+        setName('');
         isClose()
     }
 
@@ -106,6 +109,7 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
                             className="popup__input"
                             placeholder="Введите почту"
                             onChange={changeEmail}
+                            value={email}
                             required
                         />
                         {emailError && <p className="popup__label popup__label_err">{emailError}</p>}
@@ -116,6 +120,7 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
                             className="popup__input"
                             placeholder="Введите пароль"
                             onChange={changePassword}
+                            value={password}
                             required
                         />
                         {passwordError && <p className="popup__label popup__label_err">{passwordError}</p>}
@@ -127,6 +132,7 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
                                 className="popup__input"
                                 placeholder="Введите свое имя"
                                 onChange={changeName}
+                                value={name}
                                 required
                             />
                             {nameError && <p className="popup__label popup__label_err">{nameError}</p>}
