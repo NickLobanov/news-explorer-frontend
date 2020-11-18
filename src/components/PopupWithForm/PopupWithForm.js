@@ -7,14 +7,36 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [name, setName] = React.useState('');
-    const [signup, setSignup] = React.useState(true)
+    const [signup, setSignup] = React.useState(true);
+    const [emailError, setEmailError] = React.useState('');
+    const [passwordError, setPasswordError] = React.useState('');
+    const [formValid, setFormValid] = React.useState(false);
+
+    React.useEffect(() => {
+        if (emailError || passwordError) {
+            setFormValid(false)
+        } else {
+            setFormValid(true)
+        }
+    }, [emailError, passwordError])
 
     function changeEmail(evt) {
         setEmail(evt.target.value)
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!re.test(String(evt.target.value).toLowerCase())) {
+            setEmailError('Неправильный формат Email')
+        } else {
+            setEmailError('')
+        }
     }
 
     function changePassword(evt) {
         setPassword(evt.target.value)
+        if (evt.target.value < 8) {
+            setPasswordError('пароль должен быть длиннее 8 символов')
+        } else {
+            setPasswordError('')
+        }
     }
 
     function changeName(evt) {
@@ -80,7 +102,9 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
                             onChange={changeEmail}
                             required
                         />
+                        {emailError && <p className="popup__label popup__label_err">Неправильный формат email</p>}
                     </label>
+                    
                     <label className="popup__label">Пароль
                         <input type="password"
                             className="popup__input"
@@ -89,6 +113,7 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
                             required
                         />
                     </label>
+                   
                     { !signup && 
                         <label className="popup__label">Имя
                             <input type="text"
@@ -98,8 +123,9 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
                                 required
                             />
                         </label>
+    
                     }
-                    <button className="popup__button">{signup ? "Вход" : "Зарегистрироваться"}</button>
+                    <button disabled={!formValid} className="popup__button">{signup ? "Вход" : "Зарегистрироваться"}</button>
                     <p className="popup__text">или <span className="popup__link" onClick={switchPopup}>{signup ? "Зарегистрироваться" : "Вход"}</span></p>
                 </div>
                 <button className="popup__close" type="button" onClick={handleClose}></button>
