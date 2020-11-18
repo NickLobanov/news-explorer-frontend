@@ -90,3 +90,20 @@ export const getCards = (token) => {
         return Promise.reject(`Ошибка: ${res.status}`);
     })
 };
+
+export const deleteCard  = (token, cardId) => {
+    return fetch(`${BASE_URL}/articles/${cardId}`, {
+        method: 'DELETE',
+        headers: {
+            'authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((res) => {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+    })
+    .catch(err => console.log(err))
+};
