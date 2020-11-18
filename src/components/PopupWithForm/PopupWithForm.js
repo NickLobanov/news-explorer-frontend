@@ -10,15 +10,16 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
     const [signup, setSignup] = React.useState(true);
     const [emailError, setEmailError] = React.useState('');
     const [passwordError, setPasswordError] = React.useState('');
+    const [nameError, setNameError] = React.useState('')
     const [formValid, setFormValid] = React.useState(false);
 
     React.useEffect(() => {
-        if (emailError || passwordError) {
+        if (emailError || passwordError || nameError) {
             setFormValid(false)
         } else {
             setFormValid(true)
         }
-    }, [emailError, passwordError])
+    }, [emailError, passwordError, nameError])
 
     function changeEmail(evt) {
         setEmail(evt.target.value)
@@ -32,7 +33,7 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
 
     function changePassword(evt) {
         setPassword(evt.target.value)
-        if (evt.target.value < 8) {
+        if (evt.target.value.length < 8) {
             setPasswordError('пароль должен быть длиннее 8 символов')
         } else {
             setPasswordError('')
@@ -41,6 +42,11 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
 
     function changeName(evt) {
         setName(evt.target.value)
+        if (evt.target.value.length < 2) {
+            setNameError('Имя должно быть больше 2 символов')
+        } else {
+            setNameError('')
+        }
     }
 
     function switchPopup() {
@@ -102,7 +108,7 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
                             onChange={changeEmail}
                             required
                         />
-                        {emailError && <p className="popup__label popup__label_err">Неправильный формат email</p>}
+                        {emailError && <p className="popup__label popup__label_err">{emailError}</p>}
                     </label>
                     
                     <label className="popup__label">Пароль
@@ -112,6 +118,7 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
                             onChange={changePassword}
                             required
                         />
+                        {passwordError && <p className="popup__label popup__label_err">{passwordError}</p>}
                     </label>
                    
                     { !signup && 
@@ -122,10 +129,11 @@ function PopupWithForm({ isOpen, isClose, isLogged }) {
                                 onChange={changeName}
                                 required
                             />
+                            {nameError && <p className="popup__label popup__label_err">{nameError}</p>}
                         </label>
     
                     }
-                    <button disabled={!formValid} className="popup__button">{signup ? "Вход" : "Зарегистрироваться"}</button>
+                    <button disabled={!formValid} className={`popup__button ${!formValid && 'popup__button_disabled'}`}>{signup ? "Вход" : "Зарегистрироваться"}</button>
                     <p className="popup__text">или <span className="popup__link" onClick={switchPopup}>{signup ? "Зарегистрироваться" : "Вход"}</span></p>
                 </div>
                 <button className="popup__close" type="button" onClick={handleClose}></button>
