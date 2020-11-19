@@ -10,6 +10,7 @@ function SavedNews({ isLogged, deleteCard, savedCards, singOut, isMobileMenuActi
 
     const currentUser = React.useContext(CurrentUserContext);
     const [savedUserCards, setUserCards] = React.useState([]);
+    console.log(savedCards)
 
     React.useEffect(() => { 
         setUserCards(savedCards.filter(item => item.owner === currentUser._id))    

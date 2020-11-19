@@ -27,7 +27,7 @@ function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, c
                         <NewsCard typeButton={typeButton}
                             id={index}
                             key={data._id}
-                            date={Date.parse(data.publishedAt.slice(0, 10))}
+                            date={Date.parse(data.publishedAt) || Date.parse(data.date)}
                             cardKey={data._id}
                             hintText={hintText}
                             showHint={showHint}
