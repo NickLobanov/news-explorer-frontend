@@ -25,7 +25,9 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [signup, setSignup] = React.useState(true);
   const [isPreloaderActive, setPreloaderActive] = React.useState(false);
-  const [formDisabvled, setFormDisabled] = React.useState(false)
+  const [formDisabvled, setFormDisabled] = React.useState(false);
+  const [nowDay, setNowDay] = React.useState('');
+  const [prevDay, setPrevDay] = React.useState('')
 
   React.useEffect(() => {
     //Проверка JWT токена
@@ -86,11 +88,20 @@ function App() {
     setPopupSuccessOpen(false)
   }
 
+  //Функция преобразования даты
+  function dateHandle() {
+    let nowDaySec = Date.now();
+    let prevDaySec = nowDaySec - (24 * 7 * 60 * 60 * 1000);
+    setNowDay(new Date(nowDaySec).toISOString().substr(0,10));
+    setPrevDay(new Date(prevDaySec).toISOString().substr(0,10))
+  }
+
   //Получение карточки
   function handleFormSubmit(evt, keyword) {
     evt.preventDefault();
+    dateHandle()
     setPreloaderActive(true)
-    newsApi.getNews(keyword)
+    newsApi.getNews(keyword, nowDay, prevDay)
       .finally(() => {
         setPreloaderActive(false)
       })
