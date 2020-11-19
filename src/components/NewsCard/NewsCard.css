@@ -112,20 +112,13 @@
     cursor: pointer;
 }
 
-
 .news-card__button_add {
     background-image: url(../../images/bookmark.svg);
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.news-card__button_add:hover {
-    background-image: url(../../images/bookmark-hover.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.news-card__button_add:active {
+.news-card__button_add_active {
     background-image: url(../../images/bookmark-active.svg);
     background-position: center;
     background-repeat: no-repeat;

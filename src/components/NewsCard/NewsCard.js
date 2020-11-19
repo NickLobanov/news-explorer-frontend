@@ -4,6 +4,7 @@ import './NewsCard.css';
 function NewsCard({ typeButton, hintText, showHint, sourceName, description, title, cardImage, keyword, id, addCardClick, cardKey, deleteCard, isLogged, date}) {
 
     const [hintActive, setHintActive] = React.useState(false);
+    const [isCardActive, setCardActive] = React.useState(false);
 
     function mouseOver() {
         setHintActive(true)
@@ -16,6 +17,7 @@ function NewsCard({ typeButton, hintText, showHint, sourceName, description, tit
     function clickBookmark(evt) {
         if (evt.target.classList.contains('news-card__button_add') && isLogged) {
             console.log(id)
+            setCardActive(true)
             addCardClick(id)
         }
         if (evt.target.classList.contains('news-card__button_delete')) {
@@ -37,7 +39,7 @@ function NewsCard({ typeButton, hintText, showHint, sourceName, description, tit
             <div className="news-card__container">
                 {showHint && <span className="news-card__keyword">{keyword}</span>}
                 <span className={`news-card__hint ${hintActive && !isLogged && 'news-card__hint_active'}`}>{hintText}</span>
-                <div className={`news-card__button news-card__button_${typeButton}`}
+                <div className={`news-card__button news-card__button_${typeButton} ${isCardActive && 'news-card__button_add_active'} `}
                     onMouseOver={mouseOver} onMouseOut={mouseOut}></div>
             </div>
         </div>

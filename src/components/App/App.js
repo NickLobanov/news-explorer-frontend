@@ -24,7 +24,7 @@ function App() {
   const [cardListVisible, setCardListVisible] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [signup, setSignup] = React.useState(true);
-  const [isPreloaderActive, setPreloaderActive] = React.useState(false)
+  const [isPreloaderActive, setPreloaderActive] = React.useState(false);
 
   React.useEffect(() => {
     //Проверка JWT токена
@@ -58,6 +58,7 @@ function App() {
   //Открытие popup авторизации / выход из профиля
   function handleAuthorizationBtn() {
     if (isLogged) {
+      setCardListVisible(false)
       localStorage.removeItem('token')
       localStorage.removeItem('lastSearch')
       setLogged(false)
@@ -167,7 +168,8 @@ function App() {
             isCardVisible={cardListVisible}
             formSubmit={handleFormSubmit}
             saveCard={saveCard}
-            isPreloader={isPreloaderActive}/>
+            isPreloader={isPreloaderActive}
+          />
         </Route>
         <ProtectedRoute path="/saved-news"
           isLogged={isLogged}
