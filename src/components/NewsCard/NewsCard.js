@@ -21,6 +21,10 @@ function NewsCard({ typeButton,
     const [hintActive, setHintActive] = React.useState(false);
     const [isCardActive, setCardActive] = React.useState(false);
 
+    const monthNames = [
+        'января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря',
+    ]
+
     function mouseOver() {
         setHintActive(true)
     }
@@ -48,7 +52,7 @@ function NewsCard({ typeButton,
         <div className="news-card" onClick={clickBookmark}>
             <img src={cardImage} alt="Изображение статьи" className="news-card__image"/>
             <div className="news-card__wrap">
-            <p className="news-card__date">{date}</p>
+            <p className="news-card__date">{new Date(date).getDay()} {monthNames[new Date(date).getMonth()]}, {new Date(date).getFullYear()}</p>
                 <h3 className="news-card__title">{title}</h3>
                 <p className="news-card__text">{description}</p>
                 <p className="news-card__source">{sourceName}</p>
