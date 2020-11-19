@@ -26,7 +26,7 @@ function SavedNewsHeader({ userName, amoutArticles }) {
                 <p className="news-info__amount">{userName}, у вас {amoutArticles.length} сохранённых статей</p>
                 {uniqeKeyword.length > 3 ?
                  <p className="news-info__keywords">По ключевым словам: <span className="news-info__keyword">{uniqeKeyword[0]}</span>,
-                    <span className="news-info__keyword">{uniqeKeyword[1]}</span> и <span className="news-info__keyword">{uniqeKeyword.length - 2}</span>
+                    <span className="news-info__keyword">{uniqeKeyword[1]}</span> и <span className="news-info__keyword">{uniqeKeyword.length - 2} другим</span>
                 </p> : 
                 <p className="news-info__keywords">По ключевым словам: <span className="news-info__keyword">{uniqeKeyword[0]}</span>
                     {uniqeKeyword[1] && <span className="news-info__keyword">,{uniqeKeyword[1]}</span>}
