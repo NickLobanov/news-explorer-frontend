@@ -13,7 +13,7 @@ function SavedNews({ isLogged, deleteCard, savedCards, singOut, isMobileMenuActi
 
     React.useEffect(() => { 
         setUserCards(savedCards.filter(item => item.owner === currentUser._id))    
-    }, [])
+    }, [savedCards])
 
     return (
         <>

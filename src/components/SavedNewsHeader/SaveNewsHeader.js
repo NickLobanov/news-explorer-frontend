@@ -2,7 +2,6 @@ import React from 'react';
 import './SavedNewsHeader.css';
 
 function SavedNewsHeader({ userName, amoutArticles }) {
-    console.log(amoutArticles)
 
     const keywordArr = amoutArticles.map((item) => {
         return item.keyword

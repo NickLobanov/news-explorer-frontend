@@ -1,7 +1,21 @@
 import React from 'react';
 import './NewsCard.css';
 
-function NewsCard({ typeButton, hintText, showHint, sourceName, description, title, cardImage, keyword, id, addCardClick, cardKey, deleteCard, isLogged, date}) {
+function NewsCard({ typeButton,
+        hintText,
+        showHint,
+        sourceName,
+        description,
+        title,
+        cardImage,
+        keyword,
+        id,
+        addCardClick,
+        cardKey,
+        deleteCard, 
+        isLogged,
+        date,
+    }) {
 
     const [hintActive, setHintActive] = React.useState(false);
     const [isCardActive, setCardActive] = React.useState(false);

@@ -135,9 +135,7 @@ function App() {
   function deleteCard(cardId, token) {
     mainApi.deleteCard(token, cardId)
       .then(() => {
-        const newCardArr = savedCard.map((item) => {
-          return item._id !== item.cardId
-        });
+        const newCardArr = savedCard.filter((item) => item._id !== cardId);
         setSavedCard(newCardArr)
       })
       .catch(err => console.log(err))
