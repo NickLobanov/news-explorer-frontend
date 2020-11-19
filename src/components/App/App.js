@@ -38,6 +38,8 @@ function App() {
               setSavedCard(saveCardData)
             }
           })
+        setCards(JSON.parse(localStorage.getItem(('lastSearch'))))
+        setCardListVisible(true)
       }
     }
     tokenCheck()
@@ -57,6 +59,7 @@ function App() {
   function handleAuthorizationBtn() {
     if (isLogged) {
       localStorage.removeItem('token')
+      localStorage.removeItem('lastSearch')
       setLogged(false)
       setPopupWithMenuClick(false)
     } else {
@@ -91,6 +94,7 @@ function App() {
       })
       .then((data) => {
           setCards(data.articles)
+          localStorage.setItem('lastSearch', JSON.stringify(data.articles))
           setCardListVisible(true);
       })
       .catch(err => console.log(err))
