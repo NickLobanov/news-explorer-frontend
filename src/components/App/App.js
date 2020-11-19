@@ -25,6 +25,7 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [signup, setSignup] = React.useState(true);
   const [isPreloaderActive, setPreloaderActive] = React.useState(false);
+  const [formDisabvled, setFormDisabled] = React.useState(false)
 
   React.useEffect(() => {
     //Проверка JWT токена
@@ -133,7 +134,11 @@ function App() {
 
   //Авторизация пользователя
   function authHadnler(email, password) {
+    setFormDisabled(true);
     mainApi.authorization(email, password)
+      .finally(() => {
+        setFormDisabled(false)
+      })
       .then(data => {
         if (data) {
           console.log('success');
@@ -145,7 +150,11 @@ function App() {
 
   //Регистрация пользователя
   function regHandler(email, password, name) {
+    setFormDisabled(true);
     mainApi.register(email, password, name)
+      .finally(() => {
+        setFormDisabled(false)
+      })
       .then(data => {
         if (data) {
           console.log('success');
@@ -189,6 +198,7 @@ function App() {
         isLogged={handleLogin}
         authHandler={authHadnler}
         regHandler={regHandler}
+        formDisabled={formDisabvled}
       />
       <PopupWithMenu isLogged={isLogged}
         menuType={'mobile'}

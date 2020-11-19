@@ -2,7 +2,7 @@ import React from 'react';
 import './PopupWithForm.css';
 
 
-function PopupWithForm({ isOpen, isClose, isLogged, authHandler, regHandler }) {
+function PopupWithForm({ isOpen, isClose, authHandler, regHandler, formDisabled }) {
 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -97,6 +97,7 @@ function PopupWithForm({ isOpen, isClose, isLogged, authHandler, regHandler }) {
                             placeholder="Введите почту"
                             onChange={changeEmail}
                             value={email}
+                            disabled={formDisabled}
                             required
                         />
                         {emailError && <p className="popup__label popup__label_err">{emailError}</p>}
@@ -108,6 +109,7 @@ function PopupWithForm({ isOpen, isClose, isLogged, authHandler, regHandler }) {
                             placeholder="Введите пароль"
                             onChange={changePassword}
                             value={password}
+                            disabled={formDisabled}
                             required
                         />
                         {passwordError && <p className="popup__label popup__label_err">{passwordError}</p>}
@@ -120,13 +122,14 @@ function PopupWithForm({ isOpen, isClose, isLogged, authHandler, regHandler }) {
                                 placeholder="Введите свое имя"
                                 onChange={changeName}
                                 value={name}
+                                disabled={formDisabled}
                                 required
                             />
                             {nameError && <p className="popup__label popup__label_err">{nameError}</p>}
                         </label>
     
                     }
-                    <button disabled={!formValid} className={`popup__button ${!formValid && 'popup__button_disabled'}`}>{signup ? "Вход" : "Зарегистрироваться"}</button>
+                    <button disabled={!formValid || formDisabled} className={`popup__button ${(!formValid || formDisabled) && 'popup__button_disabled'}`}>{signup ? "Вход" : "Зарегистрироваться"}</button>
                     <p className="popup__text">или <span className="popup__link" onClick={switchPopup}>{signup ? "Зарегистрироваться" : "Вход"}</span></p>
                 </div>
                 <button className="popup__close" type="button" onClick={handleClose}></button>
