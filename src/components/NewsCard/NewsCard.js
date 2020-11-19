@@ -15,6 +15,7 @@ function NewsCard({ typeButton,
         deleteCard, 
         isLogged,
         date,
+        setPopupWithFormClick,
     }) {
 
     const [hintActive, setHintActive] = React.useState(false);
@@ -33,6 +34,8 @@ function NewsCard({ typeButton,
             console.log(id)
             setCardActive(true)
             addCardClick(id)
+        } else {
+            setPopupWithFormClick(true)
         }
         if (evt.target.classList.contains('news-card__button_delete')) {
             deleteCard(cardKey, localStorage.getItem('token'))

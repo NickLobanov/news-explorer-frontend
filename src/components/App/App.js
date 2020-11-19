@@ -187,6 +187,7 @@ function App() {
             formSubmit={handleFormSubmit}
             saveCard={saveCard}
             isPreloader={isPreloaderActive}
+            setPopupWithFormClick={setPopupWithFormClick}
           />
         </Route>
         <ProtectedRoute path="/saved-news"

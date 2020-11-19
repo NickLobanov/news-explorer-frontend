@@ -2,7 +2,7 @@ import React from 'react';
 import './NewsCardList.css';
 import NewsCard from '../NewsCard/NewsCard';
 
-function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, cards, keyword, isVisible, showMoreCards, saveCard, deleteCard, isLogged }) {
+function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, cards, keyword, isVisible, showMoreCards, saveCard, deleteCard, isLogged, setPopupWithFormClick }) {
 
     function addCardClick(cardId) {
         console.log(cards[cardId])
@@ -27,7 +27,7 @@ function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, c
                         <NewsCard typeButton={typeButton}
                             id={index}
                             key={data._id}
-                            date={data.publishedAt}
+                            date={data.publishedAt.slice(0, 10)}
                             cardKey={data._id}
                             hintText={hintText}
                             showHint={showHint}
@@ -39,6 +39,7 @@ function NewsCardList({ typeButton, hintText, showTitle, showButton, showHint, c
                             addCardClick={addCardClick}
                             deleteCard={deleteCard}
                             isLogged={isLogged}
+                            setPopupWithFormClick={setPopupWithFormClick}
                         />
                     ))}
                 </div>
