@@ -43,7 +43,9 @@ function NewsCard({ typeButton,
         if (evt.target.classList.contains('news-card__button_delete')) {
             deleteCard(cardKey, localStorage.getItem('token'))
             console.log(cardKey)
-        } else {
+        } 
+
+        if (evt.target.classList.contains('news-card__button_add') && !isLogged) {
             setPopupWithFormClick(true)
         }
     }
