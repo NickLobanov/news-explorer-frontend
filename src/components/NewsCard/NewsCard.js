@@ -38,12 +38,13 @@ function NewsCard({ typeButton,
             console.log(id)
             setCardActive(true)
             addCardClick(id)
-        } else {
-            setPopupWithFormClick(true)
-        }
+        } 
+
         if (evt.target.classList.contains('news-card__button_delete')) {
             deleteCard(cardKey, localStorage.getItem('token'))
             console.log(cardKey)
+        } else {
+            setPopupWithFormClick(true)
         }
     }
 
