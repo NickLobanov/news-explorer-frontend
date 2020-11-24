@@ -71,6 +71,13 @@
         background-size: cover;
     }
 
+    .header__burger-menu_dark {
+        background-image: url(../../images/burger-menu-black.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
     .header__burger-menu_active {
         display: none;
     }

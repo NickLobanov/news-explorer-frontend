@@ -8,8 +8,9 @@
 }
 
 .news-card__image {
-    max-height: 272px;
-    object-fit: cover;
+    height: 272px;
+    width: 100%;
+    object-fit: fill;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
 }
@@ -95,6 +96,11 @@
     border-radius: 10px;
     margin-left: auto;
     margin-right: 5px;
+    visibility: hidden;
+}
+
+.news-card__hint_active {
+    visibility: visible;
 }
 
 .news-card__button {
@@ -106,20 +112,13 @@
     cursor: pointer;
 }
 
-
 .news-card__button_add {
     background-image: url(../../images/bookmark.svg);
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.news-card__button_add:hover {
-    background-image: url(../../images/bookmark-hover.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.news-card__button_add:active {
+.news-card__button_add_active {
     background-image: url(../../images/bookmark-active.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -182,7 +181,7 @@
     }
 
     .news-card__image {
-        max-height: 150px;
+        height: 150px;
     }
 
     .news-card__hint {
@@ -214,7 +213,7 @@
     }
 
     .news-card__image {
-        max-height: 196px;
+        height: 196px;
     }
 
     .news-card__date {

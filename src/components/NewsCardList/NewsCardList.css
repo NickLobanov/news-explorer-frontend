@@ -3,6 +3,14 @@
     padding-bottom: 80px;
 }
 
+.card-list_visability {
+    display: block;
+}
+
+.card-list_hidden {
+    display: none;
+}
+
 .card-list__container {
     max-width: 1232px;
     margin: 0 auto;

@@ -34,6 +34,7 @@
 }
 
 .nav__button {
+    position: relative;
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
@@ -45,6 +46,29 @@
     border-radius: 100px;
     margin-left: 44px;
     cursor: pointer;
+}
+
+.nav__button_exit {
+    padding-right: 37px;
+}
+
+.nav__button_exit::after {
+    content: '';
+    display: block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    background-image: url(../../images/exit-white.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 14px;
+    right: 10px;
+}
+
+.nav__button_exit_dark::after {
+    background-image: url(../../images/exit.svg);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .nav__save-article {
