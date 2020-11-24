@@ -86,8 +86,14 @@ function PopupWithForm({ isOpen, isClose, authHandler, regHandler, formDisabled 
         isClose()
     }
 
+    function closePopup(evt) {
+        if(evt.target.classList.contains('popup_active')) {
+            handleClose()
+        }
+    }
+
     return(
-        <div className={`popup ${isOpen && `popup_active`}`}>
+        <div className={`popup ${isOpen && `popup_active`}`} onClick={closePopup}>
             <form className="popup__form" onSubmit={handleSubmit}>
                 <div className="popup__wrap">
                 <h3 className="popup__title">{signup ? "Вход" : "Зарегистрироваться"}</h3>
