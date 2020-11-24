@@ -15,6 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "deploy": "npm run build && scp -r ./build/* nick-lobanov@84.201.175.128:/home/nick-lobanov/frontend",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
